@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>CS4241 Assignment 2</title>
+    <meta charset='utf-8' />
+    <script src='js/main.js'></script>
+    <link rel='stylesheet' href='css/main.css' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Patrick's Used Cars</h1>
+      <h2 class='tagline'>Great Used Cars at Great Prices</h2>
+    </header>
+    <img src="Used_Cars.jpg" alt="Image of Used Cars" id="car-image">
+    <p>
+      Welcome to Patrick's Used Cars!
+      Browse our selection or let us inspect your car to determine its Miles Per Gallon (MPG) so we can give you an estimated price!
+    </p>
+    <form>
+      <input type='text' id='model' placeholder='Enter Model Name' required>
+      <input type='number' id='year' placeholder='Enter Year' required min="1900" max="2026">
+      <input type='text', id='color' placeholder='Enter Color' required>
+      <button class="submit">Submit</button>
+    </form>
+  </body>
+</html>

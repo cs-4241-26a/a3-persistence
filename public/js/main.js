@@ -1,6 +1,15 @@
 // FRONT-END (CLIENT) JAVASCRIPT HERE
 let container = null
 let editingId = null
+let credentials = null
+
+const apiFetch = function( endpoint, options = {} ) {
+  const headers = new Headers( options.headers )
+  if( credentials ) {
+    headers.set( 'Authorization', 'Basic ' + btoa( `${credentials.username}:${credentials.password}` ) )
+  }
+  return fetch( endpoint, { ...options, headers } )
+}
 
 const submit = async function( event ) {
   // stop form submission from trying to load
@@ -24,7 +33,7 @@ const submit = async function( event ) {
   const method = editingId === null ? 'POST' : 'PUT'
   const endpoint = editingId === null ? '/submit' : '/edit'
   
-  const response = await fetch( endpoint, {
+  const response = await apiFetch( endpoint, {
     method,
     headers: {
       'Content-Type': 'application/json'
@@ -34,12 +43,13 @@ const submit = async function( event ) {
 
   const arr = await response.json()
   editingId = null
-  document.querySelector('form button').innerText = 'Submit'
+  document.querySelector('#entry-form button[type="submit"]').innerText = 'Submit'
+  document.querySelector('#password').required = true
   renderEntries( arr )
 }
 
 const loadEntries = async function() {
-  const response = await fetch( '/data' )
+  const response = await apiFetch( '/data' )
   renderEntries( await response.json() )
 }
 
@@ -68,7 +78,7 @@ const renderEntries = function( arr ) {
     const passwordMatchesPrevious = item.passwordMatchesPrevious ?? false
     child.classList.add('output-row')
 
-    for ( let value of [ website, name, pass, passwordMatchesPrevious ] ) {
+    for ( let value of [ website, name, 'Saved', passwordMatchesPrevious ] ) {
       const field = document.createElement('div')
       field.classList.add('output-cell')
       field.innerText = value
@@ -80,7 +90,7 @@ const renderEntries = function( arr ) {
     deleteButton.type = 'button'
     deleteButton.innerText = 'Delete'
     deleteButton.onclick = async function() {
-      const response = await fetch( '/delete?id=' + encodeURIComponent( item.id ), { // this deletes the entry with the given id (which is the current item in the loop)
+      const response = await apiFetch( '/delete?id=' + encodeURIComponent( item.id ), { // this deletes the entry with the given id (which is the current item in the loop)
         method: 'DELETE'
       })
       renderEntries( await response.json() )
@@ -94,9 +104,10 @@ const renderEntries = function( arr ) {
     editButton.onclick = function() {
       document.querySelector( '#website' ).value = website
       document.querySelector( '#username' ).value = name
-      document.querySelector( '#password' ).value = pass
+      document.querySelector( '#password' ).value = ''
+      document.querySelector( '#password' ).required = false
       editingId = item.id
-      document.querySelector('form button').innerText = 'Update'
+      document.querySelector('#entry-form button[type="submit"]').innerText = 'Update'
     }
     child.appendChild( editButton )
 
@@ -106,11 +117,50 @@ const renderEntries = function( arr ) {
   }
 }
 
-window.onload = function() {
-  const button = document.querySelector('button')
-  button.onclick = submit
+const authenticate = async function( endpoint ) {
+  const username = document.querySelector('#auth-username').value
+  const password = document.querySelector('#auth-password').value
+  const response = await fetch( endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username: document.querySelector('#auth-username').value,
+      password: document.querySelector('#auth-password').value
+    })
+  })
+  const result = await response.json().catch( () => ({ error: 'The server returned an invalid response.' }) )
+  const message = document.querySelector('#auth-message')
+  if( !response.ok ) {
+    message.innerText = result.error
+    return
+  }
+  message.innerText = ''
+  credentials = { username, password }
+  document.querySelector('#auth-panel').hidden = true
+  document.querySelector('#app-panel').hidden = false
+  document.querySelector('#user-status').innerText = `Logged in as ${result.username}`
+  document.querySelector('#auth-form').reset()
+  loadEntries()
+}
+
+const logout = async function() {
+  credentials = null
+  document.querySelector('#app-panel').hidden = true
+  document.querySelector('#auth-panel').hidden = false
+  document.querySelector('#auth-message').innerText = ''
+  container.innerHTML = ''
+}
+
+window.onload = async function() {
+  document.querySelector('#auth-form').addEventListener('submit', event => {
+    event.preventDefault()
+    authenticate( '/login' )
+  })
+  document.querySelector('#register-button').onclick = () => authenticate( '/register' )
+  document.querySelector('#logout-button').onclick = logout
+  document.querySelector('#entry-form').addEventListener('submit', submit)
   container = document.createElement( 'div' )
   container.classList.add( 'container' )
-  document.body.appendChild( container )
-  loadEntries()
+  document.querySelector('#app-panel').appendChild( container )
+
 }

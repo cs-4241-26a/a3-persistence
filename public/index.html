@@ -10,13 +10,28 @@
   </head>
   <body>
     <h1>Password Manager</h1>
-    <p>Welcome to your Password Manager! It keeps track of your website credentials, and checks if your password matches old ones!</p>
-    <form>
-      <input type="text" id="website" placeholder="Website" aria-label="Website" value="">
-      <input type='text' id='username' placeholder="Username" aria-label="Username" value=''>
-      <input type='text' id='password' placeholder="Password" aria-label="Password" value=''>
-      <button type="submit">Submit</button>
-    </form>
+    <section id="auth-panel">
+      <h2>Log in</h2>
+      <form id="auth-form">
+        <input type="text" id="auth-username" placeholder="Username" aria-label="Username" autocomplete="username" required>
+        <input type="password" id="auth-password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
+        <button type="submit">Log in</button>
+        <button type="button" id="register-button">Create account</button>
+      </form>
+      <p id="auth-message" role="alert"></p>
+    </section>
+
+    <section id="app-panel" hidden>
+      <p id="user-status"></p>
+      <button type="button" id="logout-button">Log out</button>
+      <p>Save and manage your website credentials.</p>
+      <form id="entry-form">
+        <input type="text" id="website" placeholder="Website" aria-label="Website" required>
+        <input type="text" id="username" placeholder="Username" aria-label="Username" required>
+        <input type="password" id="password" placeholder="Password" aria-label="Password" required>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
       <script src='js/main.js'></script>
   </body>
 </html>

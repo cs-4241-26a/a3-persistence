@@ -1,0 +1,41 @@
+{
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.3.0",
+    "cookie-session": "^2.1.1",
+    "dotenv": "^17.4.2",
+    "errorhandler": "^1.5.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongodb": "^7.6.0",
+    "morgan": "^1.12.1",
+    "serve-favicon": "^2.5.1",
+    "serve-static": "^2.2.1"
+  },
+  "engines": {
+    "node": "24.19.0"
+  },
+  "name": "a3-persistence",
+  "version": "1.0.0",
+  "description": "Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template\r ===",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beccafey/a3-BeccaEiferman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/beccafey/a3-BeccaEiferman/issues"
+  },
+  "homepage": "https://github.com/beccafey/a3-BeccaEiferman#readme",
+  "devDependencies": {
+    "@types/serve-favicon": "^2.5.7"
+  }
+}

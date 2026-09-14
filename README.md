@@ -1,111 +1,45 @@
 Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template
 ===
 
-Due: September 15th, by 1:59 PM.
+## AgeSort
+By Becca Eiferman
+Link: https://a3-beccaeiferman.onrender.com
 
-This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)
+My project is Age Sort! First, an account must be created or signed into before the user is redirected to the main screen. In the "User Information" area enter you or your friends' name, birth year, and class, and then press the "Submit" button! The webpage will the calculate the age you turn in 2026, which is displayed in the "User Information" table below. The application sorts the data entires by either youngest to oldest or oldest to youngest depending on which button has been selected. There is also a "Delete" button to the right of each row in the table that allows a row of data to be removed from the webpage, and an "Edit" button that allows a user to edit an entry. There is also a button which leads to a page that contains all user data from every user of the webpage.
+One challenge I faced was not realizing I needed to have seperate collections of data for username/password information and added user information. I was very confused why my logins sometimes wouldn't work and why there were blank rows in my user information tables, before I realized I needed to split up the data. 
+I chose to use a username and required password for this assignment because I am still new to creating webpages and it was the easiest form of authentication.
+I used the Bootstrap CSS framework for two reasons. First of all, the GitHub link listed it as the most popular framework for developing responsive, mobile first projects on the web, meaning it was likely easy to use and my project could adapt to use it. I also looked up the type of project I was creating and Bootstrap came up as the most appropriate CSS framework to use. I didn't like how the Bootstrap got rid of my purple since I wanted to keep the cute purple theme, so I still included some of my old classes from assignment 2 which the purple was used.
 
-Baseline Requirements
----
-
-Your application is required to implement the following functionalities:
-
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account. 
-- Persistent data storage in between server sessions using [mongodb](https://www.mongodb.com/cloud/atlas) (you *must* use mongodb for this assignment). You can use either the [official mongodb node.js library](https://www.npmjs.com/package/mongodb) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
-
-Your application is required to demonstrate the use of the following concepts:  
-
-HTML:  
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
-
-Note that it might make sense to have two pages for this assignment, one that handles login / authentication, and one that contains the rest of your application.
-For example, when visiting the home page for the assignment, users could be presented with a login form. After submitting the login form, if the login is 
-successful, they are taken to the main application. If they fail, they are sent back to the login to try again. For this assignment, it is acceptable to simply create 
-new user accounts upon login if none exist, however, you must alert your users to this fact.  
-
-CSS:  
-- CSS styling should primarily be provided by your chosen template/framework. 
-Oftentimes a great deal of care has been put into designing CSS templates; 
-don't override their stylesheets unless you are extremely confident in your graphic design capabilities. 
-The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:  
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. 
-See the [previous assignment](https://github.com/cs-4241-23/shortstack) for reference.
-
-Node.js:  
-- A server using Express and a persistent database (mongodb).
-
-General:  
-- Your site should achieve at least 90% on the `Performance`, `Best Practices`, `Accessibility`, and `SEO` tests 
-using Google [Lighthouse](https://developers.google.com/web/tools/lighthouse) (don't worry about the PWA test, and don't worry about scores for mobile devices).
-Test early and often so that fixing problems doesn't lead to suffering at the end of the assignment. 
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. I'd begin by converting your A2 assignment. First, change the server to use express. Then, modify the server to use mongodb instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Deploy your project to Render and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Render, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourfirstname-yourlastname` so we can find it.
-5. Fork this repository and modify the README to the specifications below.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-firstname-lastname`.
-
-Achievements
----
-
-Below are suggested technical and design achievements. You can use these to help boost your grade up to an A and customize the 
-assignment to your personal interests, for a maximum twenty additional points and a maximum grade of a 100%. 
-These are recommended achievements, but feel free to create/implement your own... just make sure you thoroughly describe what you did in your README, 
-why it was challenging, and how many points you think the achievement should be worth. 
-ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
-
-*Technical*
-- (10 points) Implement OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authenticaion or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. This is the hardest achievement in Webware; you have been warned!  
-- (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
-
-*Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
-Which element received the most emphasis (contrast) on each page? 
-How did you use proximity to organize the visual information on your page? 
-What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
-How did you use alignment to organize information and/or increase contrast for particular elements. 
-Write a paragraph of at least 125 words *for each of the four principles* (four paragraphs, 500 words in total).
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-A link to your project running on render.
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- **Express Middleware Packages Used**: 
+    - **cookie-session**: keeps track of which user is currently logged in.
+    - **serve-static**: serves the files inside of the "public" folder to the browser for my webpage.
+    - **morgan**: used to show my GET and POST requests in the terminal.
+    - **serve-favicon**: I added a purple star favicon for my webpage.
+    - **errorhandler**: displays error messages when an error occurs with the Express server.
+- **Lighthouse Tests**:
+    - **Performance**: I've ran this a couple different times and I keep getting numbers between 95-100 the font links take a bit I guess. So I don't know if I'll actually get points for this unfortunately. Sometimes it is 100 though so maybe I'll get lucky.
+    - **Accessibility**: Got a 100 on Google Lighthouse tests.
+    - **Best Practices**: Got a 100 on Google Lighthouse tests.
+    - **SEO**: Got a 100 on Google Lighthouse tests.
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+- **Site Accessability Tips from W3C**:
+    - **1- Provide informative, unique page titles**: changed the title of each page from "CS4241 Assignment 3" to a summary of the page's content to better reflect the page.
+    - **2- Use headings to convey meaning and structure**: included a heading that summarizes each section of the webpage (for example, all forms and tables have descriptive headings).
+    - **3- Provide sufficient contrast between foreground and background**: the background is a gradient from pink to purple, while all text is a dark shade of purple on top of a white box to provide contrast from the background. All purple buttons have also been moved on top of the white boxes so they don't blend in with the purple background.
+    - **4- Don’t use color alone to convey information**: Required fields are indicated with a "*" symbol rather than a red color.
+    - **5- Provide clear and consistent navigation options**: All naviagtion between pages is located on a consistant purple button that clearly states which page the website will return to.
+    - **6- Ensure that form elements include clearly associated labels**: All form entries have labels at the level of the entry located to the left side, as English is a left to right read language.
+    - **7- Associate a label with every form control**: A "for" attribute has been added for each "label" element which corresponds to the id or variable name of the element.
+    - **8- Reflect the reading order in the code order**: HTML code is written so that elements occuring on the top of the page, which would be read first, are written first. This order occurs from the top to the bottom of the page in read order.
+    - **9- Use mark-up to convey meaning and structure**: The appropriate mark-up is used for headings, lists, tables, and all other elements on the webpage, and are used to properly structure the content.
+    - **10- Keep content clear and concise**: The amount of text on the page is limited to short, simple summaries of form/tables, input directions, headings and titles. I avoided adding unnecessarily complex words and phrases.
+    - **11- Provide clear instructions**: I indicated where to input information and have a clear button to submit it. If username or password is invalid, it is displayed and there is a button that redirects a user back. When a required field is hovered over, text appears that says "Please fill out this field", and if it is submitted without that required field the text appears as a pop-up.
+    - **12- Use headings and spacing to group related content**: All related areas are grouped together in a box with a summarizing heading. There are spaces in between each box containing unrealted information.
+- **CRAP Principles**:
+    - **Contrast**: For the main contrast, I chose to put text and other important elements in white text boxes so they can stand out from the bright, pink to purple gradient background. My goal for this was to draw attention to the main aspects of the sight so that they don’t blend in and get lost with the background. I did the same for the purple buttons, moving them onto the white boxes so they didn’t blend in with the background. For the text, I chose to keep the font, sizing (aside from title vs. header vs. paragraph text), and color consistent as I didn’t include too much text in my website and there wasn’t any specific area of text that I needed to emphasize. The only text color I changed was the text on the buttons, which I chose to use white text on a purple background instead of purple text on a white background so that both the button and the text would be visible.
+    - **Repetition**: As I mentioned briefly in contrast, I kept the font and color the same for all text on the website to help unify the look. I kept the same layout between pages including the pink to purple gradient background, a box included the title and a header along with some text, and then the following information included in boxes below that. All elements of each type had the same CSS styles applied to them to ensure unity between each page. For example, all boxes were white with the container mt-4 from Bootstrap applied to them, and all buttons were purple with white text. My goal with this was to create a sense of familiarity between each page while keeping a fairly simple design for the website.
+    - **Alignment**: For alignment, I tried to center most of my boxes, tables, forms, and text on the webpage as I felt it would give a cleaner, more organized setup for the elements. I’m not great at fancy or complicated alignments so most of the elements are simply stacked on top of each other, however I think this is an appropriate layout for a fairly simple website such as this one. My buttons are set up with a flex layout though, since they are smaller I wanted to put them in line with each other rather than stacked on top of each other to show they are related. I also made sure the boxes had the same width to help with the cleaner, more unified setup for my website.
+    - **Proximity**: My main idea for the topic of proximity was to group all related elements into a div box together. This was a good way to ensure that different groups of information were separated and wouldn’t all blend together to the reader. On top of each box, I put a clear heading which described either the purpose of the box or a summary of the information contained in it. If nearby buttons related to the information in the box, I moved them inside of the same div so they were more clearly grouped together. I also created different webpages for different functionalities of the website. For example, the sign in page, sign in failure page, individual user page, and all data pages are all separate web pages on the website. I also ensured that there was some spacing in between the boxes with the background visible between them to further separate different sections.

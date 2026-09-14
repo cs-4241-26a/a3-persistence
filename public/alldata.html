@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>All Info - AgeSort</title>
+    <meta charset='utf-8' />
+    <meta name="description" content="A table displaying all data on the AgeSort website.">
+    <script src='js/alldata.js' defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel='stylesheet' href='css/main.css' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="/favicon.ico?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+
+    <div class="container text-center mt-4">
+      <div class="box p-4">
+        <h1>Welcome to Age Sort</h1>
+          <p>
+          Insert you and your friends' Name, Birth Year, and your Class and we will sort by the age you all turn in 2026!
+          </p>
+      </div>
+    </div>
+
+    <div class="container text-center mt-4">
+      <div class="box p-4">
+        <form action="/userdata_redirect" method="POST">
+            <div class="d-flex justify-content-center align-items-center gap-3">
+                <button type="submit" id="userdata_redirect" class="btn btn-purple">Back to User Data</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    
+    <main role="main">
+      <div class="container mt-4">
+        <div class="box2 p-4">
+              <h2>All Users Information</h2>
+              <div class="table-responsive">
+                <table id="age_table" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>Added By</th>
+                      <th>Name</th>
+                      <th>Class</th>
+                      <th>Birth Year</th>
+                      <th>Age</th>
+                    </tr>
+                  </thead>
+                  <tbody id="age_table_body">
+                  </tbody>
+                </table>
+                <div class="d-flex justify-content-center align-items-center gap-3">
+                  <button type="button" id="young_button" class="btn btn-purple">Sort Youngest -> Oldest</button>
+                  <button type="button" id="old_button" class="btn btn-purple">Sort Oldest -> Youngest</button>
+                </div>
+              </div>
+            </div>
+      </div>
+    </main>
+    
+
+    <div class="container text-center mt-4">
+      <div class="box p-4">
+        <form action="/signout" method="POST">
+            <div class="d-flex justify-content-center align-items-center gap-3">
+                <button type="submit" id="alldata_redirect" class="btn btn-purple">Sign Out</button>
+            </div>
+        </form>
+      </div>
+    </div>
+
+
+  </body>
+</html>

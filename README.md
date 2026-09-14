@@ -1,6 +1,36 @@
 Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template
 ===
 
+## GitHub OAuth setup
+
+The application supports GitHub OAuth through Passport in addition to its local username/password login.
+
+1. In GitHub, open **Settings → Developer settings → OAuth Apps → New OAuth App**.
+2. For local development, use `http://localhost:3000` as the homepage URL and `http://localhost:3000/auth/github/callback` as the authorization callback URL.
+3. Copy `.env.example` to `.env` and provide `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`.
+4. For Render, set the callback URL to `https://YOUR-RENDER-SERVICE.onrender.com/auth/github/callback`, update the GitHub OAuth App, and set `GITHUB_CALLBACK_URL` to that same URL in Render.
+
+Never commit `.env` or expose the GitHub client secret.
+
+## CSS framework
+
+The interface uses Pico CSS 2, installed through npm and served locally by Express. Pico provides the accessible form controls, spacing system, typography defaults, and responsive foundation. Custom CSS adds the Get It Done List color palette, dashboard layout, cards, priority badges, empty state, and responsive refinements while retaining Pico's native interaction patterns.
+
+## Accessibility achievement: 12 W3C-aligned improvements
+
+1. **Skip repeated content:** A keyboard-visible “Skip to main content” link lets users bypass account navigation.
+2. **Use semantic regions:** The page uses `header`, `nav`, `main`, `section`, and `footer` landmarks so assistive-technology users can navigate by region.
+3. **Provide a logical heading structure:** Each view has one primary heading and sections have descriptive, hierarchically ordered headings.
+4. **Associate labels and controls:** Every input, textarea, and select has an explicit label tied to its control.
+5. **Give instructions before forms:** Login and todo instructions explain account creation, case sensitivity, required fields, and automatic deadline behavior before submission.
+6. **Identify status messages:** Login errors and todo results use named status regions with `role="status"` and `aria-live="polite"` so updates are announced without stealing focus.
+7. **Describe data tables:** The todo table has an assistive-technology caption, scoped column headers, and descriptive column names.
+8. **Name controls clearly:** Dynamically created Edit and Delete buttons include the relevant task description in their accessible names.
+9. **Make keyboard focus visible:** A high-contrast three-pixel focus indicator appears on interactive controls, including the normally hidden skip link.
+10. **Maintain strong contrast:** Dark navy text and controls on white or pale surfaces provide strong contrast; success and error messages use distinct dark colors rather than color alone in controls.
+11. **Support zoom and small screens:** Fluid type, wrapping layouts, scrollable tables, and mobile breakpoints preserve content without horizontal page scrolling.
+12. **Respect motion preferences:** A `prefers-reduced-motion` rule minimizes animation and transition movement for users who request it.
+
 Due: September 15th, by 1:59 PM.
 
 This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="A private, accessible todo list organized by priority and deadline.">
+  <meta name="theme-color" content="#172554">
+  <link rel="stylesheet" href="vendor/pico/pico.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <script src="js/main.js" defer></script>
+  <title>Get It Done List</title>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <nav class="header-inner" aria-label="Account navigation">
+      <a class="brand" href="/" aria-label="Get It Done List home">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span>Get It Done List</span>
+      </a>
+      <button id="logout-button" class="outline logout-button" type="button" hidden>Log out</button>
+    </nav>
+  </header>
+
+  <main id="main-content" class="app-shell">
+    <section id="login-section" class="login-card" aria-labelledby="login-heading">
+      <p class="eyebrow">Plan with clarity</p>
+      <h1 id="login-heading">Make space for what matters.</h1>
+      <p class="intro">Sign in to keep task list with priorities, and automatically calculated deadlines</p>
+      <form id="login-form">
+        <label for="username">Username
+          <input id="username" name="username" autocomplete="username" aria-describedby="account-help" required>
+        </label>
+        <small id="account-help">New usernames create an account automatically.</small>
+        <label for="password">Password
+          <input id="password" name="password" type="password" autocomplete="current-password" aria-describedby="password-help" required>
+        </label>
+        <small id="password-help">Passwords are case-sensitive</small>
+        <button class="primary-action" type="submit">Log In or Create Account</button>
+      </form>
+      <p id="login-message" class="status-message error-message" role="status" aria-live="polite"></p>
+      <div class="oauth-divider" aria-hidden="true"><span>or</span></div>
+      <a class="github-button" href="/auth/github"><span aria-hidden="true">◆</span> Continue with GitHub</a>
+      <p class="privacy-note">Your tasks are visible only to your account.</p>
+    </section>
+
+    <div id="todo-interface" hidden>
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">Your workspace</p><h1>Priorities for the week!</h1></div>
+      </div>
+
+      <section class="form-card" aria-labelledby="form-heading">
+        <h2 id="form-heading">Add a todo</h2>
+        <form id="todo-form" aria-describedby="form-instructions">
+          <label for="task">Task description
+            <textarea id="task" name="task" rows="3" maxlength="200" placeholder="What needs to be done?" required></textarea>
+          </label>
+          <div class="field-grid">
+            <label for="priority">Priority
+              <select id="priority" name="priority" required>
+                <option value="high">High - 1 day</option>
+                <option value="medium" selected>Medium - 3 days</option>
+                <option value="low">Low - 7 days</option>
+              </select>
+            </label>
+            <label for="creation-date">Start date
+              <input id="creation-date" name="creationDate" type="date" required>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button id="submit-button" class="primary-action" type="submit">Add todo</button>
+            <button id="cancel-edit-button" class="secondary outline" type="button" hidden>Cancel edit</button>
+          </div>
+        </form>
+        <p id="form-message" class="status-message success-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="results-card" aria-labelledby="results-heading">
+        <div class="section-heading"><div><p class="eyebrow">Stay on track</p><h2 id="results-heading">Your todos</h2></div><span id="todo-count" class="count-badge" aria-live="polite">0 tasks</span></div>
+        <div id="empty-message" class="empty-state"><span aria-hidden="true">✓</span><h3>You’re all caught up</h3><p>Add a task to start planning your week.</p></div>
+        <div class="table-container">
+          <table id="todo-table" hidden>
+            <caption class="visually-hidden">Todos belonging to your signed-in account</caption>
+            <thead><tr><th scope="col">Task</th><th scope="col">Priority</th><th scope="col">Start</th><th scope="col">Deadline</th><th scope="col">Actions</th></tr></thead>
+            <tbody id="todo-results"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer><p>Get It Done List</p></footer>
+</body>
+</html>

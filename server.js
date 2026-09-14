@@ -24,8 +24,6 @@ app.use( express.static( "public" ) )
 app.use( express.json() )
 
 const uri = `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASSWORD}@${process.env.MONGOHOST}`
-// check for sanity
-console.log( 'uri:', uri )
 const client = new MongoClient( uri )
 
 let collection = null
@@ -42,36 +40,42 @@ async function run() {
   await client.connect()
   collection = await client.db("datatest").collection("test")
 
-  // route to get all docs
-  app.get("/docs", async (req, res) => {
-    if (collection !== null) {
-      const docs = await collection.find({}).toArray()
-      res.json( docs )
-    }
+  app.get("/data", async (req, res) => {
+    const docs = await collection.find({}).toArray()
+    res.json( docs.map( doc => ({ ...doc, id: doc._id.toString() }) ) )
   })
-  
-  app.post( '/add', async (req,res) => {
+
+  app.post( '/submit', async (req,res) => {
     const result = await collection.insertOne( req.body )
-    res.json( result )
+    const docs = await collection.find({}).toArray()
+    res.json( docs.map( doc => ({ ...doc, id: doc._id.toString() }) ) )
   })
 
-  // assumes req.body takes form { _id:5d91fb30f3f81b282d7be0dd } etc.
-  app.post( '/remove', async (req,res) => {
-    const result = await collection.deleteOne({ 
-      _id:new ObjectId( req.body._id ) 
-    })
-    res.json( result )
-  })
-
-  app.post( '/update', async (req,res) => {
-    const result = await collection.updateOne(
-      { _id: new ObjectId( req.body._id ) },
-      { $set:{ name:req.body.name } }
+  app.put( '/edit', async (req,res) => {
+    await collection.updateOne(
+      { _id: new ObjectId( req.body.id ) },
+      { $set: {
+        website: req.body.website,
+        username: req.body.username,
+        password: req.body.password
+      } }
     )
-    res.json( result )
+    const docs = await collection.find({}).toArray()
+    res.json( docs.map( doc => ({ ...doc, id: doc._id.toString() }) ) )
+  })
+
+  app.delete( '/delete', async (req,res) => {
+    await collection.deleteOne({ _id: new ObjectId( req.query.id ) })
+    const docs = await collection.find({}).toArray()
+    res.json( docs.map( doc => ({ ...doc, id: doc._id.toString() }) ) )
   })
 }
 
-run()
+app.listen( process.env.PORT || 3000, () => {
+  console.log( `Password Manager running at http://localhost:${process.env.PORT || 3000}` )
+})
 
-app.listen(3000)
+run().catch( error => {
+  console.error( 'Unable to connect to MongoDB:', error )
+  process.exitCode = 1
+})

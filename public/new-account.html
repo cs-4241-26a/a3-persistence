@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <title>Register - Warhammer Score Tracker</title>
+        <meta charset='utf-8' />
+        <meta name="description" content = "Track scores for games of Warhammer 40,000. Made for CS 4241 Assignment 3." />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+        <link rel='stylesheet' href='css/main.css' />
+    </head>
+    <body>
+        <h1>Warhammer Score Tracker</h1>
+        <p>
+            We did not find an account with that username.
+            If you would like to make a new one, enter the new username and password below.
+        </p>
+        <form action='/register' method='POST'>
+            <label for='registerUsername'>Username</label>
+            <input type='text' name='username' id='registerUsername'>
+            <label for='registerPassword'>Password</label>
+            <input type='password' name='password' id='registerPassword'>
+            <input type='submit' value="Submit">
+        </form>
+        <p>
+            <a href='/'>
+                <button>Back to Login</button>
+            </a>
+        </p>
+    </body>
+</html>

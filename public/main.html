@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <title>Warhammer Score Tracker</title>
+    <meta charset='utf-8' />
+    <meta name="description" content = "Track scores for games of Warhammer 40,000. Made for CS 4241 Assignment 3." />
+    <script src='js/main.js'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+    <link rel='stylesheet' href='css/main.css' />
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+</head>
+<body>
+    <main>
+        <div id="topbar">
+            <h1 id="mainHeader">Warhammer Score Tracker</h1>
+            <a id="logoutButton" href = "/">
+                <button tabindex="-1">Logout</button>
+            </a>
+        </div>
+
+        <h2>New Game</h2>
+
+        <form id="scoreForm">
+        <label for="userName">Your Name</label>
+        <input type="text" id="userName" />
+
+        <label for="oppName">Opponent's Name</label>
+        <input type="text" id="oppName" />
+
+        <label for="userScore">Your Score</label>
+        <input type="number" id="userScore" />
+
+        <label for="oppScore">Opponent's Score</label>
+        <input type="number" id="oppScore" />
+
+        <label for="userFaction">Your Faction</label>
+        <select id=userFaction>
+            <option value="">--Choose a Faction--</option>
+            <option value="Imperium">Imperium</option>
+            <option value="Chaos">Chaos</option>
+            <option value="Xenos">Xenos</option>
+        </select>
+
+        <label for="oppFaction">Opponent's Faction</label>
+        <select id=oppFaction>
+            <option value="">--Choose a Faction--</option>
+            <option value="Imperium">Imperium</option>
+            <option value="Chaos">Chaos</option>
+            <option value="Xenos">Xenos</option>
+        </select>
+
+        <div id="submitContainer">
+            <input type="submit" id="submit" value="Submit"/>
+        </div>
+        </form>
+
+        <h2 style="margin-top: 2rem">My Games</h2>
+        <!-- Will be filled in by JS -->
+    </main>
+</body>
+</html>

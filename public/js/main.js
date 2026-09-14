@@ -26,6 +26,9 @@ const submit = async function( event ) {
   
   const response = await fetch( endpoint, {
     method,
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body
   })
 

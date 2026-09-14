@@ -1,0 +1,5 @@
+node_modules/
+a2-shortstack/
+.env
+.DS_Store
+npm-debug.log*

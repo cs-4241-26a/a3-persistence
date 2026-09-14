@@ -26,6 +26,7 @@ I used Pico CSS to enhance UI of the todo app - Pico was one of the top framewor
 
 
 - **Tech Acheivement 1**: I used OAuth authentication via the Github strategy
+- **Tech Acheivement 1**: I received 100% for all categories on lighthouse.
 - **express-session:** Creates server-managed login sessions - sends cookie to the browser.
 
 

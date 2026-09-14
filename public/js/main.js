@@ -7,10 +7,32 @@ const bookCount = document.querySelector('#book-count')
 const signinButton = document.querySelector('#signin-button')
 const signupButton = document.querySelector('#signup-button')
 const logoutButton = document.querySelector('#logout-button')
+const auth0LoginButton = document.querySelector('#auth0-login-button')
 const usernameInput = document.querySelector('#username')
 const passwordInput = document.querySelector('#password')
+const userBadge = document.querySelector('#user-badge')
 
-const getCurrentUser = () => localStorage.getItem('pageTurnerUser') || ''
+const getCurrentUser = () => {
+  const urlUser = new URLSearchParams(window.location.search).get('user')
+  if (urlUser) {
+    localStorage.setItem('pageTurnerUser', urlUser)
+    const nextUrl = new URL(window.location.href)
+    nextUrl.searchParams.delete('user')
+    window.history.replaceState({}, '', nextUrl)
+    return urlUser
+  }
+
+  return localStorage.getItem('pageTurnerUser') || ''
+}
+const saveButton = document.querySelector('#save-button')
+const cancelButton = document.querySelector('#cancel-button')
+
+const setEditMode = (isEditing) => {
+  saveButton.textContent = isEditing ? 'Update book' : 'Add book'
+  saveButton.classList.toggle('btn-warning', isEditing)
+  saveButton.classList.toggle('btn-primary', !isEditing)
+  cancelButton.hidden = !isEditing
+}
 
 const setCurrentUser = (username) => {
   if (username) {
@@ -26,6 +48,7 @@ const updateAuthUI = () => {
 
   signinButton.hidden = signedIn
   signupButton.hidden = signedIn
+  auth0LoginButton.hidden = signedIn
   logoutButton.hidden = !signedIn
   usernameInput.disabled = signedIn
   passwordInput.disabled = signedIn
@@ -34,8 +57,12 @@ const updateAuthUI = () => {
     usernameInput.value = ''
     passwordInput.value = ''
     loginMessage.textContent = `Signed in as ${currentUser}.`
+    userBadge.textContent = `Signed in as: ${currentUser}`
+    userBadge.hidden = false
   } else {
     loginMessage.textContent = 'Please sign in or sign up to continue.'
+    userBadge.textContent = 'Not signed in'
+    userBadge.hidden = false
   }
 }
 
@@ -64,8 +91,8 @@ const renderBooks = function(books) {
       <td>${book.minutesPerDay}</td>
       <td>${book.readingTime} days</td>
       <td>
-        <button class='edit' data-id='${book.id}'>Edit</button>
-        <button class='delete secondary' data-id='${book.id}'>Delete</button>
+        <button type='button' class='edit' data-id='${book.id}' aria-label='Edit book: ${book.title}'>Edit</button>
+        <button type='button' class='delete secondary' data-id='${book.id}' aria-label='Delete book: ${book.title}'>Delete</button>
       </td>
     </tr>
   `).join('')
@@ -124,6 +151,10 @@ loginForm.addEventListener('submit', async function(event) {
   loadBooks()
 })
 
+auth0LoginButton.addEventListener('click', function() {
+  window.location.href = '/auth/login'
+})
+
 logoutButton.addEventListener('click', function() {
   setCurrentUser('')
   form.reset()
@@ -132,6 +163,7 @@ logoutButton.addEventListener('click', function() {
   list.innerHTML = ''
   bookCount.textContent = '0 books'
   updateAuthUI()
+  window.location.href = '/auth/logout'
 })
 
 form.addEventListener('submit', async function(event) {
@@ -160,8 +192,7 @@ form.addEventListener('submit', async function(event) {
   renderBooks(await (await fetch(`/data?username=${encodeURIComponent(username)}`)).json())
   form.reset()
   document.querySelector('#book-id').value = ''
-  document.querySelector('#save-button').textContent = 'Add book'
-  document.querySelector('#cancel-button').hidden = true
+  setEditMode(false)
   message.textContent = id ? 'Book updated.' : 'Book added.'
 })
 
@@ -195,16 +226,14 @@ list.addEventListener('click', async function(event) {
     document.querySelector('#author').value = book.author
     document.querySelector('#pages').value = book.pages
     document.querySelector('#minutesPerDay').value = book.minutesPerDay
-    document.querySelector('#save-button').textContent = 'Update book'
-    document.querySelector('#cancel-button').hidden = false
+    setEditMode(true)
   }
 })
 
 document.querySelector('#cancel-button').addEventListener('click', function() {
   form.reset()
   document.querySelector('#book-id').value = ''
-  document.querySelector('#save-button').textContent = 'Add book'
-  this.hidden = true
+  setEditMode(false)
 })
 
 loadBooks()

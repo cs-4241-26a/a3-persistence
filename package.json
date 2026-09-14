@@ -1,15 +1,21 @@
 {
-  "name": "Chris-Card0",
+  "name": "a3-chris-cardaropoli",
   "version": "1.0.0",
-  "description": "A two-tier reading list application for CS4241 Assignment 2",
+  "description": "A MongoDB-backed reading tracker with user accounts for CS4241 Assignment 3",
   "author": "Chris Luigi Cardaropoli",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "helmet": "^8.3.0",
     "mime": "^2.4.4",
-    "mongodb": "^7.6.0"
+    "mongodb": "^7.6.0",
+    "morgan": "^1.12.1",
+    "passport": "^0.7.0",
+    "passport-auth0": "^1.4.5"
   },
   "engines": {
     "node": "24.x"

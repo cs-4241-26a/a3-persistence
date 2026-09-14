@@ -1,0 +1,17 @@
+{
+  "name": "Scoredisplay",
+  "version": "2.0.6",
+  "scripts": {
+    "build": "npm install",
+    "run": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.3.0",
+    "cookie-session": "^2.1.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.6.0",
+    "serve-favicon": "^2.5.1"
+  }
+
+}

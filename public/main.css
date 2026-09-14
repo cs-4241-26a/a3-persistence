@@ -1,0 +1,64 @@
+
+/* The pure-button is being overridden by Blueviolet which is #8A2BE2 to make the text higher contrast*/
+/* This is fine for google lighthouse and passes AA, but is not AAA compliant for small text, so I to be safe I made font size-larger everywhere*/
+.pure-button.pure-button-primary {
+  background-color: blueviolet;
+}
+
+/* Make it very obvious when an elemnt is slected */
+:focus {
+  background-color:beige;
+  /* The select element does not really work well with chaning background by the options do */
+  option {
+    background-color:beige;
+  }
+
+}
+/* Radio buttons are somehow worse then select, but since they are all children of thier label this works */
+label:focus-within {
+  background-color:beige;
+}
+
+/* I really do like the blue/green colors and since I can use them I am */
+.pure-u-1-2 {
+  background-color: aquamarine;
+}
+
+body {
+  font-size: 150%;
+  background-color: darkcyan;
+}
+
+/* I don't want any bulletpoints for ul even if I do like the list style to show stuff*/
+ul {
+  list-style-type: none
+}
+
+/* This is supposed to take up start of page, since this is were all user input happens*/
+/* Default sizing and look is fine but it needs to have a min-hight since data only appears after page load*/
+/* Having this prevents it from needing to recalculate page looks when hight chages after data appears*/
+/* I also had to add the max-width since it looked good in testng, and then I got rid of inspect and the ratio was off, oops */
+/* I added some padding to fix this and it looks better now */
+form {  
+  min-height: 45vh;
+}
+#login-form {
+  max-width: 70vw;
+  padding-top: 10vh;
+  padding-left: 15vw;
+}
+
+/* after adding a profile picture it was too close to logout so  this makes the header feel more correct */
+header {
+  display: flex;
+  justify-content: space-between;
+}
+ 
+/* I really like dynamically scaling them but lighthouse complains about how they are too low res, so here is the solution */
+/* I dont like or see the point in scaling up the image up since I don't feel like making the website load more data just to show the same 50x50 image that has been scaled up and is now blurry is useful*/
+/* well, at least lighthouse is happy */
+img {
+  max-width:50px;
+  max-height:50px;
+  object-fit:cover;
+}

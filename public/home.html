@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Scoredisplay - CS4241 Assignment 2</title>
+    <meta charset='utf-8' />
+    <script src='/home.js'></script>
+    <!-- Since a goal of this project is to score 100% on lighthouse the 250ms from having to load prue was not working, so just downloaded it and that fixed that
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    -->
+    <link rel='stylesheet' href='pure-min.css' />  
+    <link rel='stylesheet' href='main.css' />
+    
+    <!-- Description for SEO Audit -->
+    <meta name="description" content="The login page for a simple database that lets you store highscores for games you play.">
+
+  </head>
+  <body>
+    <header>
+      <button type="button" onclick="logout()"> Log Out</button>
+      <!-- W3C says alt should be blank for purely decorative image so probably here in this case, but lighthouse complains so have it anyways-->
+      <img id="profile picture" src="images/Black Elephant.png" alt="your profile picture" width="50" height="50"> </img>
+    </header>
+    <main>
+      <h1> Scoredisplay Home Page </h1>
+      <p id='welcome'>
+        Welcome back Player 1! What would you like to do?
+      </p>
+      <div class="pure-g" id="layout">
+        <form class="pure-u-1-2 pure-form pure-form-stacked" id="home">
+          
+        </form>
+        <section class="pure-u-1-2">
+          <h2 >Highscores</h2>
+          <ul class="pure-menu" id = 'scoretable'>
+            <li>
+              Submit a Score to see how how it compares to other highscores
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

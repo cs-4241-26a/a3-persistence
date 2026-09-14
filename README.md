@@ -1,6 +1,6 @@
 ## Griffin's To-Do List
 
-Live site: INSERT LINK
+Live site: [https://a3-griffin-munhall.onrender.com](https://a3-griffin-munhall.onrender.com)
 
 For A3, I took my A2 code, which created a very simple to-do list web app that allows tasks to be created and moved between three lists: an open list for new tasks, an in-progress task list that only allows a maximum of three items, and a done list for finished tasks. You add a new task with a name and priority, and the server will compute a derived deadline based on the input priority. Buttons on the tasks allow you to move them between lists, edit the task, and delete it. My goal for A3 was to turn the shared single array of tasks that lived in memory on the server into a multi-user platform where everything is stored and separated in a database.
 
@@ -15,6 +15,10 @@ For CSS, I used Bootstrap. I picked it because I remember using it in CS 3733, a
 - OAuth with GitHub (10 Pts): Users log in with GitHub. I used Passport to complete this, with /auth/github sending users to GitHub and /auth/github/callback where GitHub sends them back. In the strategy's verification, I look up the username in MongoDB and create a new user document if one isn't present. I also pass back a flag to let the app know that a message should be displayed telling the user that an account has been made for them. I added redirection to /login.html if you aren't logged in, and any data route includes a checkLogin that returns a 401 if you aren't. There's also a /logout route. The hardest part for me was figuring out the infrastructure surrounding the implementation, like configuring GitHub's OAuth app settings and the callback URLs on localhost vs. Render. The issue here was largely that if anything is wrong, it just fails without a clear indication of why.
 
 - 100% in 4 Lighthouse test (5 pts): Got 100 on both the login and main page. To get to 100, I added `<meta name="description">` to both pages for SEO. I also loaded main.js with defer and got rid of the Google Font from A2. I gave every form field a label, wrapped radio buttons in a fieldset a legend, and used Bootstrap colors with ample contrast. I used an empty favicon so the browser doesn't show a 404 for /favicon.ico, and I added compression so responses are gzipped.
+
+![Lighthouse login page](login-score.png)
+![Lighthouse main page](index-score.png)
+
 
 - Express Middleware Packages (5 pts): I used the following five:
     - Helmet: Sets a group of HTTP response headers that protect apps from common attacks.

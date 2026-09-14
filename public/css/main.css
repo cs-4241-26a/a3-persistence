@@ -1,0 +1,94 @@
+body {
+  font-family: 'Fredoka', sans-serif;
+  background-color: #fff6b7;
+  color: #2b0057;
+  margin: 0;
+  padding: 40px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #ff3d81;
+  margin-bottom: 30px;
+}
+
+#expense-form {
+  display: flex;
+  gap: 14px;
+  margin: 0 auto 30px auto;
+  max-width: 800px;
+  background-color: #3dd6ff;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#expense-form input {
+  padding: 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+#expense-form button {
+  padding: 10px 20px;
+  background-color: #ffde59;
+  color: #2b0057;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#expense-form button:hover {
+  background-color: #ff3d81;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+th {
+  background-color: #ff3d81;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+td {
+  text-align: left;
+  padding: 12px 14px;
+  background-color: white;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.edit-btn, .delete-btn, .save-btn {
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.edit-btn, .save-btn {
+  background-color: #3dd6ff;
+  color: #2b0057;
+}
+
+.edit-btn:hover, .save-btn:hover {
+  background-color: #2b0057;
+  color: #3dd6ff;
+}
+
+.delete-btn {
+  background-color: #ff3d81;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #2b0057;
+}

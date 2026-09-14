@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>CS4241 Assignment 2 - Expense Tracker</title>
+    <meta charset='utf-8' />
+    <script src='js/main.js'></script>
+    <link rel='stylesheet' href='css/main.css' />
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <h1>Expense Tracker</h1>
+    <button id="logout-btn">Log Out</button>
+
+    <form id="expense-form">
+      <input type="text" id="description" placeholder="Description" required>
+      <input type="text" id="category" placeholder="Category" required>
+      <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+      <button type="submit">Add Expense</button>
+    </form>
+
+    <table id="results">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Spend Level</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="results-body">
+      </tbody>
+    </table>
+  </body>
+</html>

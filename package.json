@@ -1,0 +1,19 @@
+{
+  "name": "a2-Aidan-Fisher",
+  "version": "1.0.0",
+  "description": "A two-tier expense tracker web app with a Node.js server, in-memory dataset, and derived spend-level field calculated per entry.",
+  "author": "Aidan Fisher",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mime": "^2.4.4",
+    "mongodb": "^7.6.0"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

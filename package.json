@@ -1,0 +1,26 @@
+{
+  "name": "a3-andry-nasief",
+  "version": "1.0.0",
+  "description": "CS4241 A3",
+  "author": "Andry",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrynasief/a3-AndryNasief.git"
+  },
+  "homepage": "https://a3-andrynasief.onrender.com/",
+  "scripts": {
+    "start": "node server.js",
+    "test-db": "node test-connection.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongodb": "^7.6.0"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

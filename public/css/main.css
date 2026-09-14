@@ -1,0 +1,81 @@
+[data-bs-theme='dark'] {
+  --bs-body-bg: #14141c;
+  --bs-body-color: #f2f2f7;
+  --bs-secondary-color: #9a9ab0;
+  --bs-border-color: #33334a;
+  --bs-tertiary-bg: #1f1f2e;
+
+  --bs-primary: #8b7cf6;
+  --bs-primary-rgb: 139, 124, 246;
+  --bs-link-color: #8b7cf6;
+  --bs-link-hover-color: #a79bf8;
+
+  --bs-card-bg: #1f1f2e;
+  --bs-card-border-color: rgba(139, 124, 246, 0.25);
+
+  --bs-form-control-bg: #1f1f2e;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+h1,
+h3,
+.h3,
+.h5 {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.jersey-card {
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.jersey-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--bs-primary);
+}
+
+.jersey-sku {
+  font-family: monospace;
+  letter-spacing: 0.5px;
+}
+
+.card-actions {
+  margin-top: auto;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: #c6c6d6;
+  --bs-btn-border-color: #c6c6d6;
+  --bs-btn-hover-color: #14141c;
+  --bs-btn-hover-bg: #c6c6d6;
+  --bs-btn-hover-border-color: #c6c6d6;
+  --bs-btn-active-color: #14141c;
+  --bs-btn-active-bg: #c6c6d6;
+  --bs-btn-active-border-color: #c6c6d6;
+}
+
+.btn-outline-danger {
+  --bs-btn-color: #ff9494;
+  --bs-btn-border-color: #ff9494;
+  --bs-btn-hover-color: #14141c;
+  --bs-btn-hover-bg: #ff9494;
+  --bs-btn-hover-border-color: #ff9494;
+  --bs-btn-active-color: #14141c;
+  --bs-btn-active-bg: #ff9494;
+  --bs-btn-active-border-color: #ff9494;
+}
+
+#login-page {
+  max-width: 340px;
+  margin-top: 4rem;
+}
+
+#login-message {
+  color: var(--bs-primary);
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}

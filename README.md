@@ -1,111 +1,27 @@
-Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template
-===
+## Black Hole Boogie - CS4241 A3
 
-Due: September 15th, by 1:59 PM.
+Zackary Perry
+https://a3-zackaryperry.onrender.com/
 
-This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)
+This project contains a small game titled Black Hole Boogie, in which the user needs to press one of four keys as fast as they can before a ball gets sucked up by the black holes surrounding it. Building upon the features included in Assignment 2, a new difficulty "Daredevil" was implemented. This difficulty has the ball start off moving much faster and accelerating quicker as the player gains points, making for a more brief and challenging experience. A notes feature was also added, so that players can write down personal remarks or strategies in regard to a specific run they had.
 
-Baseline Requirements
----
+Personal profiles have also been added to the game, implemented using MongoDB. Now, instead of having a serverwide leaderboard, players only see their own scores after signing in. Users can create an account and sign in simply by providing a username and password, or they can sign in via Open Authorization, specifically with GitHub. Integrating OAuth authentication with Passport.js was by far the most challenging aspect of this assignment (granted, it is an achievement and not part of the base assignment). Because of this, in the event it causes errors in the future, the local credential sign in feature remains included as a fallback option.
 
-Your application is required to implement the following functionalities:
-
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account. 
-- Persistent data storage in between server sessions using [mongodb](https://www.mongodb.com/cloud/atlas) (you *must* use mongodb for this assignment). You can use either the [official mongodb node.js library](https://www.npmjs.com/package/mongodb) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
-
-Your application is required to demonstrate the use of the following concepts:  
-
-HTML:  
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
-
-Note that it might make sense to have two pages for this assignment, one that handles login / authentication, and one that contains the rest of your application.
-For example, when visiting the home page for the assignment, users could be presented with a login form. After submitting the login form, if the login is 
-successful, they are taken to the main application. If they fail, they are sent back to the login to try again. For this assignment, it is acceptable to simply create 
-new user accounts upon login if none exist, however, you must alert your users to this fact.  
-
-CSS:  
-- CSS styling should primarily be provided by your chosen template/framework. 
-Oftentimes a great deal of care has been put into designing CSS templates; 
-don't override their stylesheets unless you are extremely confident in your graphic design capabilities. 
-The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:  
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. 
-See the [previous assignment](https://github.com/cs-4241-23/shortstack) for reference.
-
-Node.js:  
-- A server using Express and a persistent database (mongodb).
-
-General:  
-- Your site should achieve at least 90% on the `Performance`, `Best Practices`, `Accessibility`, and `SEO` tests 
-using Google [Lighthouse](https://developers.google.com/web/tools/lighthouse) (don't worry about the PWA test, and don't worry about scores for mobile devices).
-Test early and often so that fixing problems doesn't lead to suffering at the end of the assignment. 
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. I'd begin by converting your A2 assignment. First, change the server to use express. Then, modify the server to use mongodb instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Deploy your project to Render and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Render, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourfirstname-yourlastname` so we can find it.
-5. Fork this repository and modify the README to the specifications below.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-firstname-lastname`.
-
-Achievements
----
-
-Below are suggested technical and design achievements. You can use these to help boost your grade up to an A and customize the 
-assignment to your personal interests, for a maximum twenty additional points and a maximum grade of a 100%. 
-These are recommended achievements, but feel free to create/implement your own... just make sure you thoroughly describe what you did in your README, 
-why it was challenging, and how many points you think the achievement should be worth. 
-ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
-
-*Technical*
-- (10 points) Implement OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authenticaion or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. This is the hardest achievement in Webware; you have been warned!  
-- (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
-
-*Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
-Which element received the most emphasis (contrast) on each page? 
-How did you use proximity to organize the visual information on your page? 
-What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
-How did you use alignment to organize information and/or increase contrast for particular elements. 
-Write a paragraph of at least 125 words *for each of the four principles* (four paragraphs, 500 words in total).
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-A link to your project running on render.
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+The CSS framework used for this assignment in particular was Bootstrap 5. The use of this framework did require all the CSS that was used in the previous implementation of this project in Assignment 2 to be scrapped, with the exception of the game space CSS. Despite this, Bootstrap 5 did prove to be a convenient framework to work with. The only exception to this was that some of its text and button classes that were used for this project needed to be tuned in order to pass the Accessibility test on Google Lighthouse with a 100% score, while maintaining the same overall style and appearance that Black Hole Boogie had for Assignment 2.
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- **Tech Achievement 1 (10 POINTS)**: As mentioned above, I used OAuth authentication via the GitHub strategy. The passport and passport-github2 libraries were used in particular, and the username/password login was still kept as a backup option in the event of any errors (or in the simple case that a player wouldn't want to sign in with GitHub). Apart from all the challenges that went with setting up OAuth authentication on its own, it was also challenging making sure that the project was able to differentiate between users signing in via GitHub or through standard means. 
+
+- **Tech Achievement 2 (5 POINTS)**: I got 100% in all four lighthouse tests required for this assignment, with the specific categories being Performance, Accessibility, Best Practices, and SEO. Upon an initial test, the only two fields that required improvement were Accessibility and SEO. To address the SEO concerns, a `<meta>` tag was added to the HTML head in order to improve search engine results. Addressing the Accessibility concerns was done by tuning the text and button classes from Bootstrap 5 that were being used, as mentioned above. The heading structure also had to be fixed (using `<h2>` instead of `<h4>` in certain sections). Bootstrap classes were used to make sure the text itself still looked appealing.
+
+- **Tech Achievement 3 (5 POINTS)**: I used the following five Express middleware packages for this assignment:
+    1. *express-session*: This package saves user sessions via cookies, making it so the app remembers who is signed in at all times.
+    2. *helmet*: This package automatically sets HTTP security headers on each response it makes to protect the site from any potential web attacks.
+    3. *compression*: This package compresses files and API data before it then sends them to the browser, making for faster page load times.
+    4. *morgan*: This package prints details about every incoming network request, printing them to the server terminal to help with debugging.
+    5. *cors*: This package manages Cross-Origin Resource Sharing (CORS) rules in order to control which outside websites and domains are allowed to talk to the server's API endpoints.
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+- **Design Achievement 1**: N/A, I did not implement this achievement for this project
+
+- **Design Achievement 2**: N/A, I did not implement this achievement for this project

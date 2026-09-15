@@ -1,0 +1,25 @@
+/* Small, targeted tweaks on top of Bulma -- the framework provides the bulk
+   of the styling (layout, forms, buttons, table). */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.efficiency-excellent {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.efficiency-good {
+  color: #b8860b;
+  font-weight: 600;
+}
+
+.efficiency-poor {
+  color: #c62828;
+  font-weight: 600;
+}
+
+#alert-box {
+  word-break: break-word;
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Car Fleet Tracker - Login</title>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='description' content='Log in or create an account to manage your personal car fleet.' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css' />
+    <link rel='stylesheet' href='css/main.css' />
+    <script src='js/login.js' defer></script>
+
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <section class='hero is-fullheight'>
+      <div class='hero-body'>
+        <div class='container'>
+          <div class='columns is-centered'>
+            <div class='column is-5-tablet is-4-desktop is-3-widescreen'>
+
+              <div class='has-text-centered mb-5'>
+                <h1 class='title'>Car Fleet Tracker</h1>
+                <p class='subtitle is-6'>Sign in to manage your personal fleet</p>
+              </div>
+
+              <div id='alert-box' class='notification' hidden></div>
+
+              <form class='box' id='login-form'>
+                <div class='field'>
+                  <label class='label' for='username'>Username</label>
+                  <div class='control'>
+                    <input class='input' type='text' id='username' name='username' autocomplete='username' required />
+                  </div>
+                </div>
+
+                <div class='field'>
+                  <label class='label' for='password'>Password</label>
+                  <div class='control'>
+                    <input class='input' type='password' id='password' name='password' autocomplete='current-password' required />
+                  </div>
+                </div>
+
+                <p class='help mb-4'>
+                  New here? Just enter a username and password you haven't used before &mdash;
+                  an account will be created for you automatically.
+                </p>
+
+                <div class='field'>
+                  <div class='control'>
+                    <button type='submit' class='button is-primary is-fullwidth' id='login-btn'>Log In / Sign Up</button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

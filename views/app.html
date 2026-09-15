@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Car Fleet Tracker</title>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='description' content='Add, edit, and remove cars from your personal fleet.' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css' />
+    <link rel='stylesheet' href='/css/main.css' />
+    <script src='/js/main.js' defer></script>
+
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <nav class='navbar is-primary' role='navigation' aria-label='main navigation'>
+      <div class='navbar-brand'>
+        <span class='navbar-item'>
+          <strong>Car Fleet Tracker</strong>
+        </span>
+      </div>
+      <div class='navbar-menu'>
+        <div class='navbar-end'>
+          <span class='navbar-item' id='username-display'></span>
+          <div class='navbar-item'>
+            <button class='button is-light' id='logout-btn'>Log Out</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class='section'>
+      <div class='container'>
+        <header class='mb-5'>
+          <h1 class='title'>Fleet Data</h1>
+          <p class='subtitle is-6'>Add, edit, and remove cars from your fleet. Efficiency and age category are calculated automatically by the server.</p>
+        </header>
+
+        <div class='columns'>
+          <div class='column is-4'>
+            <div class='box'>
+              <h2 class='title is-5'>Add / Edit Car</h2>
+              <form id='car-form'>
+                <div class='field'>
+                  <label class='label' for='model'>Model</label>
+                  <div class='control'>
+                    <input class='input' type='text' id='model' name='model' required />
+                  </div>
+                </div>
+
+                <div class='field'>
+                  <label class='label' for='year'>Year</label>
+                  <div class='control'>
+                    <input class='input' type='number' id='year' name='year' min='1900' max='2100' required />
+                  </div>
+                </div>
+
+                <div class='field'>
+                  <label class='label' for='mpg'>MPG</label>
+                  <div class='control'>
+                    <input class='input' type='number' id='mpg' name='mpg' min='0' step='0.1' required />
+                  </div>
+                </div>
+
+                <div class='field'>
+                  <label class='label' id='fuel-type-label'>Fuel Type</label>
+                  <div class='control' role='radiogroup' aria-labelledby='fuel-type-label'>
+                    <label class='radio'>
+                      <input type='radio' name='fuelType' value='Gasoline' checked />
+                      Gasoline
+                    </label>
+                    <label class='radio'>
+                      <input type='radio' name='fuelType' value='Diesel' />
+                      Diesel
+                    </label>
+                    <label class='radio'>
+                      <input type='radio' name='fuelType' value='Hybrid' />
+                      Hybrid
+                    </label>
+                    <label class='radio'>
+                      <input type='radio' name='fuelType' value='Electric' />
+                      Electric
+                    </label>
+                  </div>
+                </div>
+
+                <div class='field'>
+                  <label class='label' for='notes'>Notes</label>
+                  <div class='control'>
+                    <textarea class='textarea' id='notes' name='notes' rows='3' placeholder='Optional notes about this car'></textarea>
+                  </div>
+                </div>
+
+                <div class='field'>
+                  <div class='control'>
+                    <label class='checkbox'>
+                      <input type='checkbox' id='favorite' name='favorite' />
+                      Mark as favorite
+                    </label>
+                  </div>
+                </div>
+
+                <div class='field is-grouped mt-4'>
+                  <div class='control'>
+                    <button type='submit' class='button is-primary' id='submit-btn'>Add Car</button>
+                  </div>
+                  <div class='control'>
+                    <button type='button' class='button is-light' id='cancel-btn' hidden>Cancel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class='column is-8'>
+            <div class='box'>
+              <h2 class='title is-5'>Your Fleet</h2>
+              <div class='table-container'>
+                <table class='table is-fullwidth is-striped is-hoverable' id='car-table'>
+                  <thead>
+                    <tr>
+                      <th scope='col'>Model</th>
+                      <th scope='col'>Year</th>
+                      <th scope='col'>MPG</th>
+                      <th scope='col'>Fuel Type</th>
+                      <th scope='col'>Efficiency</th>
+                      <th scope='col'>Age Category</th>
+                      <th scope='col'>Notes</th>
+                      <th scope='col'>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id='car-table-body'></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

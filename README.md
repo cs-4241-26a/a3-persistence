@@ -3,109 +3,38 @@ Assignment 3 - Persistence: Two-tier Web Application with Database, Express serv
 
 Due: September 15th, by 1:59 PM.
 
-This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)
+## Password Manager
 
-Baseline Requirements
----
+https://a3-teagantran.onrender.com
 
-Your application is required to implement the following functionalities:
+The goal of this application is to provide a simple and easy way to manage your login credentials to various websites and apps. 
 
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account. 
-- Persistent data storage in between server sessions using [mongodb](https://www.mongodb.com/cloud/atlas) (you *must* use mongodb for this assignment). You can use either the [official mongodb node.js library](https://www.npmjs.com/package/mongodb) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
+During the development of this application, I faced a few challenges such as the mongoDB integration and the authentication page. I was able to make a connection to mongoDB early in the assigment, however I struggled with being able to connect it to a cluster and edit the data as needed based on the inputs provided by the website. I eventually solved this issue by researching what functions are used for mongoDB, and combining them with my existing functions. The challenge with authentication was finding a balance between an easy method to implement, but secure enough to use. 
 
-Your application is required to demonstrate the use of the following concepts:  
+Since I didn't have much knowledge in authentication methods, I decided to authenticate my page using a simple username and password system that a number generator assigns an ID to, stored on the database. A user must input a matching username and password as one of the saved IDs to be able to continue past the login screen, or create a new account. It was the easiest to implement while showcasing the use of mongoDB functions beyond the website's main functionality.
 
-HTML:  
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
+I used the Pure.css framework from https://pure-css.github.io/ as my main framework. I chose it due to its lightweight design and simple design, where I'd be able to include CSS styling of my own on top of the framework without having to make any major changes to my code.
 
-Note that it might make sense to have two pages for this assignment, one that handles login / authentication, and one that contains the rest of your application.
-For example, when visiting the home page for the assignment, users could be presented with a login form. After submitting the login form, if the login is 
-successful, they are taken to the main application. If they fail, they are sent back to the login to try again. For this assignment, it is acceptable to simply create 
-new user accounts upon login if none exist, however, you must alert your users to this fact.  
-
-CSS:  
-- CSS styling should primarily be provided by your chosen template/framework. 
-Oftentimes a great deal of care has been put into designing CSS templates; 
-don't override their stylesheets unless you are extremely confident in your graphic design capabilities. 
-The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:  
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. 
-See the [previous assignment](https://github.com/cs-4241-23/shortstack) for reference.
-
-Node.js:  
-- A server using Express and a persistent database (mongodb).
-
-General:  
-- Your site should achieve at least 90% on the `Performance`, `Best Practices`, `Accessibility`, and `SEO` tests 
-using Google [Lighthouse](https://developers.google.com/web/tools/lighthouse) (don't worry about the PWA test, and don't worry about scores for mobile devices).
-Test early and often so that fixing problems doesn't lead to suffering at the end of the assignment. 
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. I'd begin by converting your A2 assignment. First, change the server to use express. Then, modify the server to use mongodb instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Deploy your project to Render and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Render, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourfirstname-yourlastname` so we can find it.
-5. Fork this repository and modify the README to the specifications below.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-firstname-lastname`.
-
-Achievements
----
-
-Below are suggested technical and design achievements. You can use these to help boost your grade up to an A and customize the 
-assignment to your personal interests, for a maximum twenty additional points and a maximum grade of a 100%. 
-These are recommended achievements, but feel free to create/implement your own... just make sure you thoroughly describe what you did in your README, 
-why it was challenging, and how many points you think the achievement should be worth. 
-ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
-
-*Technical*
-- (10 points) Implement OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authenticaion or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. This is the hardest achievement in Webware; you have been warned!  
-- (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
-
-*Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
-Which element received the most emphasis (contrast) on each page? 
-How did you use proximity to organize the visual information on your page? 
-What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
-How did you use alignment to organize information and/or increase contrast for particular elements. 
-Write a paragraph of at least 125 words *for each of the four principles* (four paragraphs, 500 words in total).
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-A link to your project running on render.
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+Modifications made to Pure.css:
+- Body: Added dark gradient background and white text for contrast, Times New Roman font, and centered text
+- form: changed layout to a single-column CSS grid, made input full width and rounded the corners, and placed the buttons inn the first grid column
+- #website, #password, and #username: changed border color to blueviolet
+- buttons: added more contrast between text and background for lighthouse requirements
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+**Tech Achievement 1**: I achieved a 100% score in all four lighthouse tests. I modified the Pure.css framework to adhere to the accessibility requirements as the base designs only achieved 90% on lighthouse, added headers and landmarks for semantics, and a meta description to ensure SEO score became 100.
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+**Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative: 
+- Provide sufficient contrast between foreground and background: Uses white text against dark background, and increased contrast on buttons
+- Use headings and spacing to group related content: Authentication and password functions are grouped into separate section elements, using CSS to add spacing between form controls and padding around the container
+- Use headings to convey meaning and structure: h1 is used for "Password Manager" and h2 is used for "Log in"
+- Provide clear instructions: The text “Save and manage your website credentials” explains the purpose of the application, while the input placeholders and button text explain the available actions.
+- Keep content clear and concise: Short labels are used for actions such as logging in, creating accounts, submitting, editing, and deleting.
+- Associate a label with every form control: Each input has an aria-label for accessibility users
+- Identify page language and language changes: index.html has lang='en' declared, and no other languages are used on the page
+- Help users avoid and correct mistakes: Inputs are required, need to be the appropriate type, and allows for autocomplete. The server also validates information, and requires a length of 8 characters for the password. If any errors occur, a corresponding message pops up.
+- Reflect the reading order in the code order: The html order follows the user workflow: page title, login form, application content, credential form, and then dynamically generated saved entries.
+- Write code that adapts to the user’s technology: The page uses semantic HTML, standard CSS, and regular JavaScript without requiring a JavaScript framework. The viewport meta tag supports mobile devices, and CSS uses flexible widths such as width: min(100%, 700px).
+- Don’t use color alone to convey information: The website communicates actions with text labels such as “Saved,” “Delete,” and “Edit.” Password matching is also output as a text value rather than relying only on color.
+- Provide easily identifiable feedback: The #auth-message element is assigned a role="alert". A successful login updates the status text to “Logged in as...”, and editing changes the Submit button text to “Update”

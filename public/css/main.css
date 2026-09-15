@@ -29,6 +29,25 @@ form button {
   grid-column: 1;
 }
 
+#auth-form button[type='submit'],
+#entry-form button[type='submit'] {
+  background-color: #e6e6e6;
+  color: rgba(0, 0, 0, 0.8);
+  border: 2px solid #999999;
+  font-weight: bold;
+}
+
+#auth-form button[type='submit']:hover,
+#entry-form button[type='submit']:hover {
+  background-color: #d9d9d9;
+}
+
+#auth-form button[type='submit']:focus-visible,
+#entry-form button[type='submit']:focus-visible {
+  outline: 3px solid #999999;
+  outline-offset: 2px;
+}
+
 .container {
   width: min(100%, 700px);
   align-items: center;

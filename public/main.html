@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <title>Reaction Speed Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Reaction speed test made for Webware Assignment 3">
+  <script src="js/main.min.js" defer></script>
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"> -->
+  <!-- <link rel="stylesheet" href="css/pico.min.css"> -->
+  <link rel="preload" href="css/pico.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="css/pico.min.css">
+  </noscript>
+
+  <!-- <link rel="preload" href="css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="css/main.css">
+  </noscript> -->
+  <link rel="stylesheet" href="css/main.min.css">
+
+  <!-- get rid of favicon error -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+<body>
+  <header>
+    <h1>
+      Reaction Speed Test <span class="authorBy">By Richard Newman</span>
+    </h1>
+  </header>
+  <main>
+    <div class="buttonBox">
+      <button type="button" id="reactBtn" class="idle">Enter your name first!</button>
+    </div>
+    <div class="nonReactInputs">
+      <form onsubmit="event.preventDefault()">
+        <div class="nameAndReset">
+          <input type="text" id="yourname" placeholder="Name (Required)" autocomplete="off">
+          <button type="button" id="resetBtn">Reset All Data</button>
+          <button type="button" id="resetBtnSure" class="resetBtnSure" hidden>Are you sure?</button>
+        </div>
+        <div class="currentUserLogout">
+          <button type="button" class="currentUserLogoutBtn secondary">Logout </button>
+        </div>
+        <br>
+        <div class="dataList">
+
+          <ul id="timeList" aria-label="List of the all reaction times">
+          </ul>
+          <ul id="avgList" aria-label="List of averages among all reaction times">
+          </ul>
+        </div>
+      </form>
+
+    </div>
+
+  </main>
+
+</body>
+
+</html>

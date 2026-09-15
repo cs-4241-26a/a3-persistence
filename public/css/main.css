@@ -1,0 +1,70 @@
+* {
+  font-family: "Varela Round";
+}
+
+body {
+  background: repeating-linear-gradient(
+    90deg,
+    #ffcbe2 0%,
+    #ffcbe2 10%,
+    #ffe9e9 10%,
+    #ffe9e9 20%,
+    transparent 20%,
+    transparent 30%
+  );
+  color: black;
+  height: 100%;
+  align-content: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.col1 {
+  border-radius: 5px;
+  background-color: #fffefe;
+  border: 1px solid #fca4cf;
+  padding: 15px;
+  margin: 10px;
+}
+
+table {
+  text-align: center;
+}
+
+th {
+  background-color: #fca4cf;
+  color: #fffefe;
+  padding: 5px 20px;
+}
+
+td {
+  padding: 5px 10px;
+  min-width: 50px;
+}
+
+.wideButton {
+  min-width: 200px;
+}
+
+button {
+  background-color: #fca4cf;
+  border-color: #fca4cf;
+  border-radius: 5px;
+  color: #fffefe;
+  padding: 5px 15px;
+}
+
+#submitForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#submitForm button {
+  align-self: center;
+  width: 100px;
+  margin: 10px;
+}

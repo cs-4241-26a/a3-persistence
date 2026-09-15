@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>CS4241 Assignment 2</title>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="daily drink tracker with additional notes"
+    />
+
+    <script src="js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tacit-css@1.9.7/dist/tacit-css.min.css"
+      integrity="sha384-D/LLHCkqHnoJ7y04sSEBX95s7wMjBn45wtHneRfp03QBgt6+a6Pz2eLUC4N1CAI0"
+      crossorigin="anonymous"
+    />
+
+    <!-- get rid of favicon error -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+
+  <body>
+    <button id="logout" type="button">logout</button>
+    <div id="container">
+      <div>
+        <form id="submitForm" method="POST">
+          <h2>leave a new note...</h2>
+          <p>
+            <label for="title">title:</label>
+            <input type="text" id="title" value="title" />
+          </p>
+
+          <p>
+            <label for="message">message:</label>
+            <textarea id="message" style="border: 1px solid black"></textarea>
+          </p>
+
+          <p>
+            <label for="drink">drink:</label>
+            <select id="drink">
+              <option value="coffee">coffee</option>
+              <option value="tea">tea</option>
+              <option value="matcha">matcha</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="date">date:</label>
+            <input type="date" id="date" />
+          </p>
+
+          <button id="submit" type="button">submit</button>
+        </form>
+      </div>
+
+      <main>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th id="title">title</th>
+                <th id="message">message</th>
+                <th id="drink">drink</th>
+                <th id="date">date</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

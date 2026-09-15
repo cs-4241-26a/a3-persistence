@@ -96,16 +96,42 @@ Sample Readme (delete the above when you're ready to submit, and modify the belo
 
 A link to your project running on render.
 
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
+The Apartment Necessities Tracker is a web application that helps users keep track of essential items in their apartment. Users can add items, record their quantity and usage level, and see whether they currently have enough of an item or need more. Users can also modify and delete their items from the saved list.
 
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+One of the biggest challenges I faced was connecting the application to MongoDB and making sure that each user could only access their own data. I have never done extensive work with user-based data storage, so it was 
+
+For authentication, I chose cookie-session because it was relatively simple to implement with Express. When a user logs in, their session stores their user ID, which allows the application to identify them and retrieve only their data. Passwords are stored as hashed values with unique salts for additional security.
+
+For the CSS framework, I used Pico.css because it provided a clean layout and style without requiring a large amount of custom CSS. I kept Pico.css responsible for most of the application's styling and only added custom CSS for application-specific changes. 
+My custom CSS includes the two-column desktop layout, a responsive one-column layout for smaller screens, table column sizing, button hover effects, and visible keyboard focus outlines.
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- **Tech Achievement 1**: I reach 100% in all four lighthouse tests. 
+STARTING:
+  Performance: 100%
+  Accessability: 100%
+  Best Practices: 100%
+  SEO: 90%
+    -> Added in a meta description in the <head> tag of the main.html.
+- **Tech Achievement 2**: 5 Express middleware packages installed.
+  1. body-parser: Parses the form and data so the application can access the users' input through req.body for various functions.
+  2. cookie-session: Handles the user login by using cookies, only allows authenticated users to access their information.
+  3. compression: Compresses the HTTP responses to reduce the amount of tmie it takes the load the page. Helps with the lighthouse test.
+  4. morgan: Logs requests to the console, allowing for easy debugging with logins and form submissions.
+  5. serve-favicon: Allows the browser to display a chosen icon for the web application.
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative:
+  1. use headings to convey meaning - Added <h2> tags above the submission form and data table to give clear meaning on what the functionality of both are. Also added headings to the login page.
+  2. keep content clear - Changed the way the utilization dropdown is described, using more common phrases such as everyday or rarely.
+  3. ensure interactive elements are easy to identify - Changed buttons to have a pointing cursor when hovering, as well as slightly enlarging the button.
+  4. identifiable feedback - Added 'required' to all input fields besides the notes. This gives a popup when trying to submit when the inputs are not filled. Also added this feature to the login screen.
+  5. provide clear instructions - Added a <p> tag in the form section to describe what should be entered into the fields.
+  6. don't use color alone - Added symbols to the Have/Need text in the table to give a visual. Also added * for required fields in the table.
+  7. design for different viewport sizes - Used a media query to format the page differently when viewing from a mobile device. The grid will stack vertically instead of horizontally.
+  8. help users avoid mistakes - Added a small help text to the quantity field so users know they have to enter in a number that is greater than or equal to 0.
+  9. associate a label with every form control - Added labels to the login and register form.
+  10. use markup to convey structure - Used <section> inside of the <main> tag in the html. This allows to have the sections act as the grid, and could fit headers and paragraph text inside as well.
+  11. ensure all interactive elements are keyboard accessible - Added .focus to my written css to add an indicator to what fields are selected if someone is using the keyboard.
+  12. write code that adapts to the user's technology - Added the viewport meta tag into the head of both html pages. This is so the page is responsive to the devices width.
+

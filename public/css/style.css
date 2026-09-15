@@ -1,0 +1,69 @@
+main.grid {
+  grid-template-columns: 30% 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: var(--pico-spacing);
+}
+
+@media (max-width: 800px) {
+  main.grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+footer {
+  padding: var(--pico-spacing);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+p {
+  font-size: medium;
+  margin: 0%;
+}
+
+button:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+#grocery-table tbody tr {
+  height: 60px;
+}
+
+#grocery-table .item {
+  width: 13%;
+}
+
+#grocery-table .category {
+  width: 12%;
+}
+
+#grocery-table .quantity {
+  width: 1%;
+}
+
+#grocery-table .utilization {
+  width: 10%;
+}
+
+#grocery-table .status {
+  width: 13%;
+}
+
+#grocery-table .notes {
+  width: 22%;
+}
+
+#grocery-table .actions {
+  width: 29%;
+}

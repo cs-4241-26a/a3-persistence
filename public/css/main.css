@@ -1,11 +1,74 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
 body {
   background-color:#f9ece5;
   color:#68150a;
+  font-family: "Chango", cursive;
+  text-align: center;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #1f0062;
+  color:#f9ece5;
+  text-align: left;
+}
+
+.sidebar h2 {
+  margin-left: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar li a {
+  margin-left: 0px;
+  color:#f9ece5;
+}
+
+.sidebar li a:hover {
+  color: #d73220;
+}
+
+.sidebar a {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.sidebar a:hover {
+  color:#d73220;
+}
+
+main {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  align-items: center;
+  flex: 1;
+  margin-left: 250px;
+  min-height: 100vh;
 }
 
 header {
@@ -14,9 +77,6 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 10px solid #68150a;
-  border-radius: 90%;
-  font-weight: bolder;
 }
 
 .title {
@@ -42,13 +102,15 @@ ul {
 }
 
 input {
-  height:1rem;
-  width:8rem;
+  height:3rem;
+  width:10rem;
 }
 
 .submit {
   background-color:#0b78b3;
   color:#f9ece5;
+  height: 3rem;
+  width: 10rem;
 }
 
 .price {

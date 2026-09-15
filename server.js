@@ -1,134 +1,129 @@
+require('dotenv').config()
+
+const { default: mongoose } = require('mongoose')
+
 const http = require( 'http' ),
       fs   = require( 'fs' ),
       // IMPORTANT: you must run `npm install` in the directory for this assignment
       // to install the mime library if you're testing this on your local machine.
       // On Render, make sure `npm install` is your build command.
-      mime = require( 'mime' ),
       path = require( 'path' ),
-      dir  = 'public/',
+      express = require( 'express' ),
+      app = express(),
+      connectDB = require('./database.js'),
+      session = require( 'express-session' ),
+      passport = require( 'passport' ),
+      GitHubStrategy = require( 'passport-github2' ).Strategy,
+      User = require( './user.js' ),
+      Review = require( './review.js' ),
+      dir  = 'public',
       port = 3000
 
-const appdata = [
-  { 'model': 'Toyota', 'year': 1999, 'color': 'red', 'mpg': 23, 'price': 9500 },
-  { 'model': 'Honda', 'year': 2004, 'color': 'blue', 'mpg': 30, 'price': 24000 },
-  { 'model': 'Ford', 'year': 1987, 'color': 'grey', 'mpg': 14, 'price': 5000 } 
-]
+connectDB()
 
-const server = http.createServer( function( request,response ) {
-  if( request.method === 'GET' ) {
-    handleGet( request, response )    
-  }else if( request.method === 'POST' ){
-    handlePost( request, response ) 
-  }else if( request.method === 'DELETE' ){
-    handleDelete( request, response ) }
-  })
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-const handleGet = function( request, response ) {
-  const filename = dir + request.url.slice( 1 ) 
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
+app.use(express.static(dir))
 
-  if( request.url === '/' || request.url === '/index.html' ) {
-    sendFile( response, 'public/index.html' )
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'super-duper-secret-key-123',
+  resave: false,
+  saveUninitialized: false,
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+})
+
+passport.deserializeUser(async (id, done) => {
+  try {
+      const user = await User.findById(id);
+      done(null, user);
+  } catch (error) {
+      done(error);
   }
-  else if ( request.url === '/data' ){
-    response.writeHead( 200, { 'Content-Type': 'application/json' })
-    response.end( JSON.stringify( appdata ) )
-  }
-  else{
-    sendFile( response, filename )
-  }
-}
+})
 
-const calculateStats = function( userData ) {
-  const year = parseInt(userData.year)
+passport.use(new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL
+  },
 
-  let max_mpg, min_mpg = 0
-
-  if (year <= 2000) {
-    max_mpg = 25
-    min_mpg = 10
+  async (accessToken, refreshToken, profile, done) => {
+    try {
+      let user = await User.findOne({
+        $or: [
+          { githubId: profile.id }
+        ]
+      })
+      if (!user) {
+        user = await User.create({
+          username: profile.displayName,
+          displayName: profile.displayName,
+          githubId: profile.id
+        })
+      }
+      else { await user.save() }
+      return done(null, user)
+    }
+    catch (err) {
+      console.log("Authentication error: ", err)
+      return done(err)
+    }
   }
-  else if (year <= 2010) {
-    max_mpg = 30
-    min_mpg = 15
+))
+
+app.get('/auth/github',
+  passport.authenticate('github', { scope: [ 'user:email' ] }));
+
+app.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/');
+  });
+
+app.get('/api/reviews', async (req, res) => {
+  try {
+    const reviews = await Review.find().sort({ createdAt: -1 })
+    res.json(reviews)
+  }
+  catch (err) {
+    res.status(404).json({error: ("Could not fetch reviews: ${err.message}")})
+  }
+})
+
+app.post('/api/reviews', async (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({error:('Unauthorized: Log in with GitHub to post.')})
+  }
+
+  try {
+    const newReview = new Review({
+      username: req.user.username,
+      displayName: req.user.username,
+      comment: req.body.comment
+    })
+    await newReview.save()
+    res.json(newReview)
+  }
+  catch (err) {
+    res.status(500).json({error:('Could not add review')})
+  }
+})
+
+app.get('/api/user', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json({ authenticated: true })
   }
   else {
-    max_mpg = 35
-    min_mpg = 20
+    res.json({ authenticated: false })
   }
+})
 
-  const userMPG = Math.floor(Math.random() * (max_mpg - min_mpg)) + min_mpg
-
-  const price = userMPG * (1000) - ( (2026 - year) * 500 )
-
-  if ( price < 5000 ) { price = 5000 }
-
-  return {
-    model: userData.model,
-    year: userData.year,
-    color: userData.color,
-    mpg: userMPG,
-    price: price,
-  }
-}
-
-const handlePost = function( request, response ) {
-  let dataString = ''
-
-  request.on( 'data', function( data ) {
-      dataString += data 
-  })
-
-  request.on( 'end', function() {
-    const userData = JSON.parse( dataString )
-    
-    const newCar = calculateStats( userData )
-
-    appdata.push( newCar )
-
-    response.writeHead( 200, "OK", {'Content-Type': 'application/json' })
-    response.end( JSON.stringify( appdata ) )
-  })
-}
-
-const handleDelete = function ( request, response) {
-  let dataString = ''
-
-  request.on( 'data', function( data ) {
-    dataString += data 
-  })
-
-  request.on( 'end', function() {
-    const input = JSON.parse(dataString)
-    const index = input.index
-    if (index >=0 && index < appdata.length) {
-      appdata.splice( index, 1 )
-    }
-
-    response.writeHead( 200, "OK", {'Content-Type': 'application/json' })
-    response.end( JSON.stringify( appdata ) )
-  })
-}
-
-const sendFile = function( response, filename ) {
-   const type = mime.getType( filename ) 
-
-   fs.readFile( filename, function( err, content ) {
-
-     // if the error = null, then we've loaded the file successfully
-     if( err === null ) {
-
-       // status code: https://httpstatuses.com
-       response.writeHeader( 200, { 'Content-Type': type })
-       response.end( content )
-
-     }else{
-
-       // file not found, error code 404
-       response.writeHeader( 404 )
-       response.end( '404 Error: File Not Found' )
-
-     }
-   })
-}
-
-server.listen( process.env.PORT || port )
+app.listen( process.env.PORT || port )

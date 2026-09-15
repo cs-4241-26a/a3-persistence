@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <title>ATAssist</title>
+  <meta name="description" content="Log your time on the clock!">
+  <meta charset='utf-8' >
+  <script src='js/main.js'></script>
+  <link rel='stylesheet' href='css/output.css' >
+  <link rel='stylesheet' href='css/main.css' >
+
+  <!-- get rid of favicon error -->
+  <link rel='icon' href='data:;base64,iVBORw0KGgo=' >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Short+Stack&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main class="max-w-8xl mx-auto">
+    <header style="grid-area: header; margin: 20px 0">
+      <h1>ATAssist</h1>
+      <p>Automated Time & Attendance (ATA) helper</p>
+    </header>
+
+    <section class="p-4" style="grid-area: userForm">
+      <h2>User Login</h2>
+      <form id="loginForm">
+        <div class="inputDiv">
+          <h3>Username</h3>
+          <input type='text' id='usernameInput' placeholder="Enter Username" autocomplete="off" required>
+        </div>
+        <div class="inputDiv">
+          <h3>Password</h3>
+          <input type='password' id='passwordInput' placeholder="Enter Password" autocomplete="off" required>
+        </div>
+        <div>
+          <button type="submit" id="usernameSubmit">Login</button>
+          <button type="button" id="logoutSubmit">Logout</button>
+        </div>
+      </form>
+      <p id="loginStatus">
+        No user logged in
+      </p>
+    </section>
+
+    <section class="p-4" style="grid-area: userSummary">
+      <h2>Time Summary</h2>
+      <div class="summaryContainer">
+        <div class="summaryItem">
+          <h3>Current User</h3>
+          <p id="currentUser">Logged Out</p>
+        </div>
+        <div class="summaryItem">
+          <h3>Time Clocked In This Week</h3>
+          <p id="weeklyTime"> 0 hours 0 minutes </p>
+        </div>
+        <div class="summaryItem">
+          <h3>Total Time Clocked In</h3>
+          <p id="totalTime"> 0 hours 0 minutes </p>
+        </div>
+        <div class="summaryItem">
+          <h3>Number of Entries</h3>
+          <p id="entryCount"> 0 </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-4" style="grid-area: timeForm">
+      <h2>Time Entry</h2>
+      <form id="timeForm">
+        <div class="timeFormContainer">
+          <div class="inputDiv">
+            <h3>Date (mm/dd/yyyy)</h3>
+            <input type='text' id='dateInput' placeholder="mm/dd/yyyy" required>
+          </div>
+          <div class="inputDiv">
+            <h3>Time (hh:mm AM/PM)</h3>
+            <input type='text' id='timeInput' placeholder="hh:mm AM/PM" required>
+          </div>
+          <div id="timeButtons">
+            <button type="button" id="clockInSubmit">Clock In</button>
+            <button type="button" id="clockOutSubmit">Clock Out</button>
+
+            <button type="button" id="confirmEditSubmit" style="display: none;">
+              Confirm Edit
+            </button>
+
+            <button type="button" id="cancelEditSubmit" style="display: none;">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+      <p id="timeStatus"></p>
+    </section>
+
+    <section class="p-4" style="grid-area: table">
+      <h2>Attendance Records</h2>
+      <div id="tableContainer">
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Date</th>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Action</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody">
+          </tbody>
+        </table>
+      </div>
+      <p id="tableStatus"></p>
+    </section>
+  </main>
+</body>
+
+</html>

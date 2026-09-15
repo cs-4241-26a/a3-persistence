@@ -1,111 +1,45 @@
-Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template
-===
+# Task Deadline Tracker
 
-Due: September 15th, by 1:59 PM.
+Render: **https://a3-avikshit-pal.onrender.com**
 
-This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)
+A two-tier task-tracking app, upgraded from Assignment 2 to use Express, MongoDB (via Mongoose), and Bootstrap. Users log in (or automatically get an account created), then see, add, edit, and delete their own tasks. The server calculates each task's deadline from its priority and creation date.
 
-Baseline Requirements
----
-
-Your application is required to implement the following functionalities:
-
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account. 
-- Persistent data storage in between server sessions using [mongodb](https://www.mongodb.com/cloud/atlas) (you *must* use mongodb for this assignment). You can use either the [official mongodb node.js library](https://www.npmjs.com/package/mongodb) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
-
-Your application is required to demonstrate the use of the following concepts:  
-
-HTML:  
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
-
-Note that it might make sense to have two pages for this assignment, one that handles login / authentication, and one that contains the rest of your application.
-For example, when visiting the home page for the assignment, users could be presented with a login form. After submitting the login form, if the login is 
-successful, they are taken to the main application. If they fail, they are sent back to the login to try again. For this assignment, it is acceptable to simply create 
-new user accounts upon login if none exist, however, you must alert your users to this fact.  
-
-CSS:  
-- CSS styling should primarily be provided by your chosen template/framework. 
-Oftentimes a great deal of care has been put into designing CSS templates; 
-don't override their stylesheets unless you are extremely confident in your graphic design capabilities. 
-The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:  
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. 
-See the [previous assignment](https://github.com/cs-4241-23/shortstack) for reference.
-
-Node.js:  
-- A server using Express and a persistent database (mongodb).
-
-General:  
-- Your site should achieve at least 90% on the `Performance`, `Best Practices`, `Accessibility`, and `SEO` tests 
-using Google [Lighthouse](https://developers.google.com/web/tools/lighthouse) (don't worry about the PWA test, and don't worry about scores for mobile devices).
-Test early and often so that fixing problems doesn't lead to suffering at the end of the assignment. 
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. I'd begin by converting your A2 assignment. First, change the server to use express. Then, modify the server to use mongodb instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Deploy your project to Render and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Render, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourfirstname-yourlastname` so we can find it.
-5. Fork this repository and modify the README to the specifications below.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-firstname-lastname`.
-
-Achievements
----
-
-Below are suggested technical and design achievements. You can use these to help boost your grade up to an A and customize the 
-assignment to your personal interests, for a maximum twenty additional points and a maximum grade of a 100%. 
-These are recommended achievements, but feel free to create/implement your own... just make sure you thoroughly describe what you did in your README, 
-why it was challenging, and how many points you think the achievement should be worth. 
-ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
-
-*Technical*
-- (10 points) Implement OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authenticaion or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. This is the hardest achievement in Webware; you have been warned!  
-- (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
-
-*Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
-Which element received the most emphasis (contrast) on each page? 
-How did you use proximity to organize the visual information on your page? 
-What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
-How did you use alignment to organize information and/or increase contrast for particular elements. 
-Write a paragraph of at least 125 words *for each of the four principles* (four paragraphs, 500 words in total).
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-A link to your project running on render.
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+- **Goal:** let a user keep a private list of tasks, where the server automatically works out a deadline based on how urgent each task is.
+- **Challenges:** the biggest challenge was restructuring the A2 app so that persistence and per-user data ownership were enforced *server-side* — every task query is scoped to `req.session.userId`, and static file serving had to be reorganized (HTML pages moved out of the public/static folder into a `views/` folder) so that `/app.html` couldn't be fetched directly, bypassing the login check. Getting Mongoose schemas, sessions, and hashed passwords working together cleanly took some iteration.
+- **Authentication strategy:** simple username/password with sessions (`express-session` + `connect-mongo`), rather than OAuth. I chose this because it's self-contained (no third-party app registration needed), and per the assignment spec, logging in with an unrecognized username automatically creates an account — the user is alerted via a JS `alert()` that this happened.
+- **CSS framework:** Bootstrap 5 (via CDN), because it gives solid default form, table, and card styling out of the box. I only added a small custom stylesheet (`public/css/main.css`) on top of it for: brand color (dark green header/buttons matching my A2 look), priority badge colors, a visible focus outline, and the skip-link styling — I did not override Bootstrap's core layout or component styles.
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
 
-### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+**Tech Achievement 1 (5 points): Express middleware packages.** I installed and used the following third-party middleware (all via `npm`, none of them built into Express):
+
+1. **`morgan`** — logs every incoming HTTP request (method, URL, status, response time) to the console, which was invaluable for debugging routes during development.
+2. **`helmet`** — automatically sets a collection of security-related HTTP response headers (like Content-Security-Policy and X-Frame-Options) to protect against common web vulnerabilities.
+3. **`compression`** — gzip-compresses response bodies before they're sent to the browser, reducing page load time.
+4. **`express-rate-limit`** — limits how many login attempts a single IP can make in a 10-minute window, to slow down brute-force password guessing on `/api/login`.
+5. **`connect-mongo`** — plugs into `express-session` to store session data in MongoDB instead of memory, so logged-in sessions survive a server restart on Render.
+
+## Design/Evaluation Achievements
+
+**Design Achievement 1 (10 points): W3C accessibility tips.** I followed twelve tips from the W3C Web Accessibility Initiative's tips for writing, designing, and developing:
+
+1. **Use headings to convey structure** — every page has a single `<h1>` in the header and `<h2>`s for each major section (Log In, Add a Task, Your Tasks), instead of styling regular text to just *look* like a heading.
+2. **Provide a "skip to content" link** — both pages have a visually-hidden-until-focused skip link at the very top of the `<body>` that jumps a keyboard user straight to the form/main content, past the repeated header.
+3. **Associate every form label with its input** — every `<input>`/`<textarea>` uses a `<label for="...">` pointing at a matching `id`, including the radio-button group, which is additionally wrapped in a `<fieldset>`/`<legend>`.
+4. **Don't rely on color alone to convey meaning** — priority isn't shown by color alone; the priority badge also contains the text "high"/"medium"/"low".
+5. **Ensure sufficient color contrast** — I specifically picked darker shades for the priority badges and header (e.g. `#8f342b` for high-priority) so white text on them meets WCAG AA's 4.5:1 contrast ratio, rather than using Bootstrap's brighter default reds/yellows.
+6. **Keep visible focus indicators** — I added an explicit `:focus-visible` outline rule in `main.css` on every interactive element, since browsers' default outlines are easy to accidentally suppress and keyboard users rely on them to track where they are.
+7. **Write descriptive link/button text and labels** — the Edit and Delete buttons each get an `aria-label` that includes the actual task name (e.g. "Delete task: Finish assignment 3"), so a screen reader user doesn't hear a list of ambiguous "Delete, Delete, Delete" buttons.
+8. **Use `aria-live` regions for dynamic content** — the login and add-task error/success messages are inside a `div` with `aria-live="polite"`, so screen reader users are told about a validation error without needing to hunt for it.
+9. **Don't disable pinch-zoom or text resizing** — the viewport meta tag intentionally omits `maximum-scale=1` / `user-scalable=no`, so users who need to zoom in on mobile devices can.
+10. **Set the page language** — both HTML documents declare `lang="en"` on the `<html>` element so screen readers use the correct pronunciation rules.
+11. **Make all interactive elements keyboard-operable** — every action (submit, cancel edit, edit row, delete row, log out) is a real `<button>` element with an `onclick` handler, not a `<div>` or `<span>` with a click listener, so it's reachable and operable via Tab and Enter/Space without extra work.
+12. **Give form fields helper text tied to them with `aria-describedby`** — the username and password fields each have a `<div class="form-text">` (e.g. "At least 4 characters") linked via `aria-describedby`, so assistive tech reads the requirement along with the field, not just on hover.
+
+## Notes for graders
+
+- MongoDB connection string and session secret are read from environment variables (`MONGODB_URI`, `SESSION_SECRET`) — see `.env.example`. These are configured directly in Render's Environment tab for the deployed version, and in a local `.env` file (not committed) for local development.
+- Logging in with a username that doesn't exist yet automatically creates an account, and the page shows an alert telling the user this happened, per the assignment instructions.
+
+### LLM Usage
+- Used to choose npm packages as well as update and implement 12 W3C tips

@@ -30,7 +30,6 @@ account. All data persists in MongoDB between sessions.
   - `helmet` — sets a range of security-related HTTP headers (CSP, etc.).
   - `morgan` — logs incoming HTTP requests to the console for debugging.
 
-*(OAuth achievement intentionally not attempted for this submission.)*
 
 ### Design/Evaluation Achievements
 

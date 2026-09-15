@@ -1,0 +1,23 @@
+#poem-form {
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+fieldset label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+th, td {
+  padding: 8px;
+}
+
+.edit-button, .delete-button {
+  padding: 5px;
+}
+
+.delete-button {
+  background-color: red;
+  border-color: red;
+  color: black;
+}

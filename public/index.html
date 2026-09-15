@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <meta name="description" content="Track and manage your personal expenses.">
+    <link rel='stylesheet' href='simple.css' />
+</head>
+<body>
+
+<h1>Expense Tracker</h1>
+
+<div class="login-credentials" id='login-credentials'>
+    <form action="/authenticate" id="loginInfo">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password">
+        <label for="login" id="loginMessage"></label>
+        <input id="login" type="submit" value="Login">
+        <input id="signup" type="submit" value="Signup">
+    </form>
+</div>
+
+<main>
+    <div class="expenses">
+        <form action="/api/submit-expense" id="expenseForm" method="POST">
+            <h3>Expense Form</h3>
+            <!-- Expense Date -->
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <br><br>
+
+            <!-- Expense Name -->
+            <label for="expense">Expense:</label>
+            <input
+                    type="text"
+                    id="expense"
+                    name="expense"
+                    placeholder="e.g. Groceries"
+                    required
+            >
+            <br><br>
+
+            <!-- Amount -->
+            <label for="amount">Amount ($):</label>
+            <input
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    placeholder="0.00"
+                    step="0.01"
+                    min="0"
+                    required
+            >
+            <br><br>
+
+            <!-- Category -->
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="">-- Select Category --</option>
+                <option value="food">Food</option>
+                <option value="transportation">Transportation</option>
+                <option value="shopping">Shopping</option>
+                <option value="bills">Bills</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="other">Other</option>
+            </select>
+            <br><br>
+
+            <!-- Description -->
+            <label for="description">Description:</label>
+            <br>
+            <textarea
+                    id="description"
+                    name="description"
+                    rows="4"
+                    cols="40"
+                    placeholder="Add a description..."
+            ></textarea>
+            <br><br>
+
+            <!-- Submit Button -->
+            <button type="submit" id="expenseSubmitButton">Add Expense</button>
+
+        </form>
+        <div>
+            <h3>Expense List</h3>
+            <ul id="expenseList" class="expenseList">
+
+            </ul>
+        </div>
+    </div>
+</main>
+
+<script>
+    const form = document.getElementById('expenseForm');
+    const loginForm = document.getElementById('login');
+    const registerUser = document.getElementById('signup');
+    const expenseList = document.getElementById('expenseList');
+
+    registerUser.addEventListener('click', async(e) => {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const loginMessage = document.getElementById('loginMessage');
+
+        const response = await fetch("/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        });
+        const data = await response.json();
+        console.log("data: ",data);
+        console.log(response.status === 500);
+        if (response.status === 500){
+            loginMessage.innerHTML = "Signup Failed";
+        }else{
+            loginMessage.innerHTML = "Signup Successful";
+        }
+    })
+
+    loginForm.addEventListener('click', async(event) => {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const loginMessage = document.getElementById('loginMessage');
+
+        const response = await fetch("/authenticate", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+        console.log(data);
+        if (data.success === true){
+            const form = document.getElementById('login-credentials');
+            form.style.display = "none";
+
+            const response = await fetch("/expenses", {
+                method: "get",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            });
+            const result = await response.json();
+            console.log(result);
+            expenseList.replaceChildren();
+            for (let i = 0; i < result.length; i++) {
+                const li1 = document.createElement("li");
+                li1.textContent = "$ "+result[i].expenseAmount;
+                const li2 = document.createElement("li");
+                li2.textContent = result[i].expenseName;
+                const li3 = document.createElement("li");
+                li3.textContent = result[i].expenseCategory;
+                const li4 = document.createElement("li");
+                li4.textContent = result[i].expenseDate;
+                const li5 = document.createElement("li");
+                li5.textContent = result[i].expenseDescription;
+                const ul = document.createElement("ul");
+
+                li1.classList.add("expense-li");
+                li2.classList.add("expense-li");
+                li3.classList.add("expense-li");
+                li4.classList.add("expense-li");
+                li5.classList.add("expense-desc");
+
+                ul.classList.add("expense-ul")
+
+                ul.appendChild(li1);
+                ul.appendChild(li2);
+                ul.appendChild(li3);
+                ul.appendChild(li4);
+                ul.appendChild(li5);
+                expenseList.appendChild(ul);
+            }
+        }
+    });
+
+    form.addEventListener('submit', async function(event) {
+        console.log("start");
+        event.preventDefault();
+
+        const json = {
+            expenseDate: document.getElementById('date').value,
+            expenseName: document.getElementById('expense').value,
+            expenseAmount: document.getElementById('amount').value,
+            expenseCategory: document.getElementById('category').value,
+            expenseDescription: document.getElementById('description').value
+        };
+
+        console.log(json);
+
+        const response = await fetch('/api/submit-expense', {
+            method: 'POST',
+            credentials: "include",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
+        });
+
+        document.getElementById('date').value = '';
+        document.getElementById('expense').value = '';
+        document.getElementById('amount').value = '';
+        document.getElementById('category').value = '';
+        document.getElementById('description').value = '';
+
+        const expenses = await fetch("/expenses", {
+            method: "get",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        });
+        const result = await expenses.json();
+        console.log(result);
+        expenseList.replaceChildren();
+        for (let i = 0; i < result.length; i++) {
+            const li1 = document.createElement("li");
+            li1.textContent = result[i].expenseAmount;
+            const li2 = document.createElement("li");
+            li2.textContent = result[i].expenseName;
+            const li3 = document.createElement("li");
+            li3.textContent = result[i].expenseCategory;
+            const li4 = document.createElement("li");
+            li4.textContent = result[i].expenseDate;
+            const li5 = document.createElement("li");
+            li5.textContent = result[i].expenseDescription;
+            const ul = document.createElement("ul");
+
+            li1.classList.add("expense-li");
+            li2.classList.add("expense-li");
+            li3.classList.add("expense-li");
+            li4.classList.add("expense-li");
+            li5.classList.add("expense-desc");
+
+            ul.classList.add("expense-ul")
+
+            ul.appendChild(li1);
+            ul.appendChild(li2);
+            ul.appendChild(li3);
+            ul.appendChild(li4);
+            ul.appendChild(li5);
+            expenseList.appendChild(ul);
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+body {
+  min-height: 100vh;
+}
+
+.item-card .item-url {
+  color: var(--bs-primary);
+  word-break: break-all;
+}
+
+.item-card .item-favorite {
+ 
+  color: #664d03;
+}
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+fieldset legend {
+  font-size: 0.95rem;
+}

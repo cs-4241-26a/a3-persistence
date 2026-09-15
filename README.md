@@ -92,9 +92,21 @@ Write a paragraph of at least 125 words *for each of the four principles* (four 
 Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
 ---
 
-## Your Web Application Title
+## Messages behind doors (incomplete)
 
-A link to your project running on render.
+Not deployed. 
+
+This project consists of a grid of buttons connected to dialogs, each containing a specific database entry. The concept here was a take-a-penny leave-a-penny philosophy, but with messages: users are encouraged to check a random door, read a message by another user, clear said message, and leave their own (at their door or another one). 
+
+Features currently implemented are: login, connection to a mongodb database, the buttons and their dialogs, the ability to add a new entry, and the ability to delete an entry. login ended up causing a bug that took a very long time for me to fix (and still hasn't been positively identified), and the dialogs approach was pretty difficult to wrangle. 
+
+Features required in the assignment specs but not implemented are: modification of existing entries, view being catered to which user is logged in, implementation of a CSS framework, deployment to render. 
+
+valid username/password pairs are: 
+ann / alpha 
+bill / bravo 
+darrell / delta
+Emily / Echo
 
 Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
 

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>CS4241 Assignment 3</title>
+    <meta charset='utf-8' />
+    <meta name='description' content='A password manager for saving and managing website credentials.' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css'
+      integrity='sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls'
+      crossorigin='anonymous'
+    />
+    <link rel='stylesheet' href='css/main.css' />
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <main>
+      <h1>Password Manager</h1>
+      <section id="auth-panel">
+        <h2>Log in</h2>
+        <form id="auth-form" class="pure-form pure-form-stacked">
+          <input class="pure-input-1" type="text" id="auth-username" placeholder="Username" aria-label="Username" autocomplete="username" required>
+          <input class="pure-input-1" type="password" id="auth-password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
+          <button class="pure-button pure-button-primary" type="submit">Log in</button>
+          <button class="pure-button" type="button" id="register-button">Create account</button>
+        </form>
+        <p id="auth-message" role="alert"></p>
+      </section>
+
+      <section id="app-panel" hidden>
+        <p id="user-status"></p>
+        <button class="pure-button" type="button" id="logout-button">Log out</button>
+        <p>Save and manage your website credentials.</p>
+        <form id="entry-form" class="pure-form pure-form-stacked">
+          <input class="pure-input-1" type="text" id="website" placeholder="Website" aria-label="Website" required>
+          <input class="pure-input-1" type="text" id="username" placeholder="Username" aria-label="Username" required>
+          <input class="pure-input-1" type="password" id="password" placeholder="Password" aria-label="Password" required>
+          <button class="pure-button pure-button-primary" type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+      <script src='js/main.js'></script>
+  </body>
+</html>

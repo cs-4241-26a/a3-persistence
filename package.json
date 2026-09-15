@@ -1,0 +1,24 @@
+{
+  "name": "NicholasHoughton",
+  "version": "1.0",
+  "description": "TVShowProgressTracker",
+  "author": "NicholasHoughton",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "connect-timeout": "^1.9.1",
+    "cookie-session": "^2.1.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mime": "^2.4.4",
+    "mongodb": "^7.6.0",
+    "morgan": "^1.12.1",
+    "mvp.css": "^1.17.3",
+    "response-time": "^2.3.4",
+    "serve-favicon": "^2.5.1"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

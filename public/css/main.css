@@ -1,0 +1,39 @@
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-buttons{
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+
+button, thead, th, input[type="submit"] {
+    background-color: dimgray;
+}
+button{
+    background-color: dimgray;
+}
+
+hr {
+    width:100%;
+}
+
+.logout-button{
+    display:flex;
+    justify-content: center;
+    box-shadow: none;
+    border:none;
+}
+
+.modify-show{
+    display:flex;
+    flex-direction: column;
+}
+
+input[type="number"]{
+    width: 100%;
+    box-sizing: border-box;
+}

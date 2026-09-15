@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta name = "description" content = "An app to track the tv shows that you are watching and how many episodes through you are. You can add a new show by using the form, or modify a show you have already added with the form as well. ">
+    <title>CS4241 Assignment 3</title>
+    <meta charset='utf-8'>
+    <script src='js/main.js'></script>
+    <link rel="stylesheet" href="/css/mvp.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>
+<main>
+<h1>TV Show Progress Tracker: <span id="loggedinuser"></span> </h1>
+</main>
+<form>
+    <label class="form-group" for="showname">Show</label>
+    <input class="form-group" type='text' id='showname' value='Name of Show Here'>
+
+    <label class="form-group" for="episodeswatched">Episodes Watched</label>
+    <input class="form-group" type='number' id='episodeswatched' value='0'>
+
+
+    <label class="form-group" for="episodecount">Total Episodes</label>
+    <input class="form-group" type='number' id='episodecount' value='0'>
+    <div class="form-buttons">
+        <button id="submitbutton">Submit</button>
+        <span>OR</span>
+        <button type="button" id="modifybutton">Modify</button>
+        <div class = "modify-show">
+        <label  for="index">Show to Modify</label>
+
+        <select id='index'>
+        </select>
+        </div>
+    </div>
+
+</form>
+<hr>
+<table id = 'showtable'>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Show</th>
+        <th>Episodes Watched</th>
+        <th>Episode Total</th>
+        <th>Percent Complete</th>
+        <th>Delete</th>
+    </tr>
+
+    </thead>
+    <tbody id = 'showresults'>
+    </tbody>
+</table>
+
+<form action = "/logout" method = "POST" class = "logout-button">
+    <button type = "submit">Logout</button>
+</form>
+
+</body>
+</html>

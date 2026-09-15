@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign In — Max's Auto Dealership</title>
+    <meta name="description" content="Sign in to manage your personal car inventory at Max's Auto Dealership.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  </head>
+  <body class="bg-light d-flex align-items-center min-vh-100">
+    <a href="#login-form" class="visually-hidden-focusable">Skip to main content</a>
+    <main class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-6 col-lg-4">
+          <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+              <h1 class="h4 fw-bold mb-1">Max's Auto Dealership</h1>
+              <p class="text-muted small mb-4">Sign in to manage your inventory</p>
+
+              <div class="alert alert-info small" role="alert">
+                Don't have an account? Enter any username and password — a new account will be created automatically.
+              </div>
+
+              <div id="error-msg" class="alert alert-danger small d-none" role="alert" aria-live="assertive"></div>
+
+              <form id="login-form" novalidate>
+                <div class="mb-3">
+                  <label for="username" class="form-label fw-semibold">Username</label>
+                  <input type="text" id="username" name="username" class="form-control"
+                         autocomplete="username" required aria-required="true" aria-describedby="error-msg">
+                </div>
+                <div class="mb-4">
+                  <label for="password" class="form-label fw-semibold">Password</label>
+                  <input type="password" id="password" name="password" class="form-control"
+                         autocomplete="current-password" required aria-required="true" aria-describedby="error-msg">
+                </div>
+                <button type="submit" id="sign-in-btn" class="btn btn-primary w-100">Sign In</button>
+              </form>
+            </div>
+          </div>
+          <p class="text-center text-muted small mt-3">&copy; 2026 Max's Auto Dealership</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById('login-form').addEventListener('submit', async function (e) {
+        e.preventDefault()
+        const btn      = document.getElementById('sign-in-btn')
+        const errorEl  = document.getElementById('error-msg')
+
+        btn.disabled        = true
+        btn.textContent     = 'Signing in…'
+        errorEl.classList.add('d-none')
+
+        try {
+          const res  = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              username: document.getElementById('username').value.trim(),
+              password: document.getElementById('password').value
+            })
+          })
+          const data = await res.json()
+
+          if (data.ok) {
+            window.location.href = '/'
+          } else {
+            errorEl.textContent = data.message
+            errorEl.classList.remove('d-none')
+            btn.disabled    = false
+            btn.textContent = 'Sign In'
+          }
+        } catch {
+          errorEl.textContent = 'Server error — please try again.'
+          errorEl.classList.remove('d-none')
+          btn.disabled    = false
+          btn.textContent = 'Sign In'
+        }
+      })
+    </script>
+  </body>
+</html>

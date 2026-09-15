@@ -1,0 +1,10 @@
+/* Custom overrides — Bootstrap handles primary styling */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Keep table action buttons vertically centered */
+#inventory-table td {
+  vertical-align: middle;
+}

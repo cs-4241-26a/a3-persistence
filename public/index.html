@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang='en' data-theme='dark'>
+
+<head>
+  <title>Lift Tracker - Login</title>
+  <meta charset='utf-8' />
+  <script src='js/login.js'></script>
+  <meta name="description" content="Login page for Lift Tracker" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Learned from the reading, had to add this to make the page responsive -->
+
+  <!-- Bulma CSS framework -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
+  <!-- Custom CSS -->
+  <link rel='stylesheet' href='css/main.css' />
+
+  <!-- Font from Google Fonts: https://fonts.google.com/specimen/Lato?preview.script=Latn -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- get rid of favicon error -->
+  <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+</head>
+
+<body>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="box" style="max-width: 400px; margin: 0 auto;">
+          <h1 class="title is-4">Log In</h1>
+          <form id="login-form">
+            <div class="field">
+              <label class="label" for="username">Username</label>
+              <div class="control">
+                <input class="input" type="text" id="username" placeholder="Username" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="password">Password</label>
+              <div class="control">
+                <input class="input" type="password" id="password" placeholder="Password" required>
+              </div>
+            </div>
+            <button type="submit" class="button is-primary">Log In / Sign Up</button>
+          </form>
+          <p id="login-message" class="help is-danger"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

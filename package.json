@@ -1,0 +1,23 @@
+{
+  "name": "a3-william-hanlon",
+  "version": "1.0.0",
+  "description": "A webapp for requesting equipment",
+  "author": "William Hanlon",
+  "scripts": {
+    "start": "node server.js",
+    "build:css": "npx @tailwindcss/cli -i public/css/main.css -o public/css/tailwind.css",
+    "watch:css": "npx @tailwindcss/cli -i public/css/main.css -o public/css/tailwind.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-openid-connect": "^2.20.2",
+    "mime": "^2.4.4",
+    "mongodb": "^7.6.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

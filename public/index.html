@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>CS4241 Assignment 2</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Equipment Request Form" />
+    <script src="js/main.js"></script>
+    <link href="./css/tailwind.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stack+Sans+Notch:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- get rid of favicon error -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+  <body
+    class="min-h-screen bg-[#f3f7fc] text-[#1e2a36] [font-family:'Fira_Sans',sans-serif] text-base"
+  >
+    <div
+      class="fixed top-4 left-10 right-10 h-11 flex items-center justify-between px-6 bg-white border border-[#dce7f2] rounded-[0.875rem] z-[100]"
+    >
+      <span class="font-semibold">Equipment Request Form</span>
+      <a
+        href="/logout"
+        class="inline-block no-underline hover:underline hover:decoration-[#1e2a36] py-2 px-4 text-[#1e2a36] [font-family:inherit] text-base cursor-pointer"
+        >Log Out</a
+      >
+    </div>
+    <main class="flex gap-6 pt-20 pr-8 pb-8 pl-8">
+      <div class="bg-white border border-[#dce7f2] rounded-[0.875rem] p-6 w-80">
+        <h1>Equipment Request Form</h1>
+        <form id="requestForm" method="POST" action="/data">
+          <input type="hidden" id="request-id" value="" />
+
+          <label for="equipment" class="flex mt-3">Equipment Needed: </label>
+          <input
+            type="text"
+            id="equipment"
+            required
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg"
+          />
+
+          <label for="name" class="flex mt-3">Requester: </label>
+          <input
+            type="text"
+            id="name"
+            required
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg"
+          />
+
+          <label for="quantity" class="flex mt-3">Quantity: </label>
+          <input
+            type="number"
+            id="quantity"
+            required
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg"
+          />
+
+          <label for="urgent" class="inline-flex mt-3">Mark if Urgent:</label>
+          <input type="checkbox" id="urgent" />
+
+          <label for="date" class="flex mt-3">Date Needed By:</label>
+          <input
+            type="date"
+            id="date"
+            required
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg"
+          />
+
+          <label for="notes" class="flex mt-3"
+            >Notes or Other Information:</label
+          >
+          <textarea
+            id="notes"
+            rows="3"
+            placeholder="..."
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg"
+          ></textarea>
+
+          <input
+            type="reset"
+            value="Clear Fields"
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg hover:bg-[#2e6fa3] hover:text-white"
+          />
+          <input
+            type="submit"
+            value="Add Request"
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg hover:bg-[#2e6fa3] hover:text-white"
+          />
+          <input
+            type="button"
+            value="Cancel Edit"
+            id="cancel"
+            hidden
+            class="w-full p-2 mb-3 border border-[#dce7f2] rounded-lg hover:bg-[#2e6fa3] hover:text-white"
+          />
+        </form>
+      </div>
+      <div
+        class="bg-white border border-[#dce7f2] rounded-[0.875rem] p-6 flex-1"
+      >
+        <p class="pl-1">Items Requested</p>
+        <table id="results-table" class="w-full border-collapse">
+          <thead>
+            <tr>
+              <th class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]">
+                Equipment
+              </th>
+              <th class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]">
+                Requester
+              </th>
+              <th class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]">
+                Quantity
+              </th>
+              <th class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]">
+                Urgent
+              </th>
+              <th class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]">
+                Date Needed
+              </th>
+              <th class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]">
+                Notes
+              </th>
+              <th class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]">
+                Priority
+              </th>
+              <th
+                class="text-left p-2 border-b border-[#dce7f2] bg-[#eaf2fa]"
+              ></th>
+            </tr>
+          </thead>
+          <tbody id="results-body"></tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

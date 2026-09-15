@@ -1,111 +1,17 @@
-Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template
-===
 
-Due: September 15th, by 1:59 PM.
-
-This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)
-
-Baseline Requirements
 ---
 
-Your application is required to implement the following functionalities:
+## Les shopping list
 
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account. 
-- Persistent data storage in between server sessions using [mongodb](https://www.mongodb.com/cloud/atlas) (you *must* use mongodb for this assignment). You can use either the [official mongodb node.js library](https://www.npmjs.com/package/mongodb) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
+https://a3-hawthornwood.onrender.com/
 
-Your application is required to demonstrate the use of the following concepts:  
-
-HTML:  
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
-
-Note that it might make sense to have two pages for this assignment, one that handles login / authentication, and one that contains the rest of your application.
-For example, when visiting the home page for the assignment, users could be presented with a login form. After submitting the login form, if the login is 
-successful, they are taken to the main application. If they fail, they are sent back to the login to try again. For this assignment, it is acceptable to simply create 
-new user accounts upon login if none exist, however, you must alert your users to this fact.  
-
-CSS:  
-- CSS styling should primarily be provided by your chosen template/framework. 
-Oftentimes a great deal of care has been put into designing CSS templates; 
-don't override their stylesheets unless you are extremely confident in your graphic design capabilities. 
-The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:  
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. 
-See the [previous assignment](https://github.com/cs-4241-23/shortstack) for reference.
-
-Node.js:  
-- A server using Express and a persistent database (mongodb).
-
-General:  
-- Your site should achieve at least 90% on the `Performance`, `Best Practices`, `Accessibility`, and `SEO` tests 
-using Google [Lighthouse](https://developers.google.com/web/tools/lighthouse) (don't worry about the PWA test, and don't worry about scores for mobile devices).
-Test early and often so that fixing problems doesn't lead to suffering at the end of the assignment. 
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. I'd begin by converting your A2 assignment. First, change the server to use express. Then, modify the server to use mongodb instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Deploy your project to Render and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Render, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourfirstname-yourlastname` so we can find it.
-5. Fork this repository and modify the README to the specifications below.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-firstname-lastname`.
-
-Achievements
----
-
-Below are suggested technical and design achievements. You can use these to help boost your grade up to an A and customize the 
-assignment to your personal interests, for a maximum twenty additional points and a maximum grade of a 100%. 
-These are recommended achievements, but feel free to create/implement your own... just make sure you thoroughly describe what you did in your README, 
-why it was challenging, and how many points you think the achievement should be worth. 
-ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
-
-*Technical*
-- (10 points) Implement OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authenticaion or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. This is the hardest achievement in Webware; you have been warned!  
-- (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
-
-*Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
-Which element received the most emphasis (contrast) on each page? 
-How did you use proximity to organize the visual information on your page? 
-What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
-How did you use alignment to organize information and/or increase contrast for particular elements. 
-Write a paragraph of at least 125 words *for each of the four principles* (four paragraphs, 500 words in total).
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-A link to your project running on render.
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+Basically my project allows people to log in and keep a shopping list personalized to their username. Its pretty simple but it gets the job done. The goal is to keep your shopping items in an easy place. Challanges I faced were... pretty much every step of the process. I had a lot of trouble figuring out how to setup mongodb and how it works especially, since I was already grappling with learning js. That being said I understand a lot more of mongodb and express and js so thats a win. I initially started making the authentication use a seperate collection for users which it'll refer to, then I realized its late at night the day this is due, so I pivoted to having each insertion of data have a field called userpass which stores the username and password. Then, when you log in it saves your username and password, and it only gets/modifies/deletes items with your username and password. Specifically, it stores it like this "user##@password". I used picnic https://picnicss.com/documentation because it looked clean and fit the clean vibe of a shopping list. I used modifications in the form of a different css sheet that goes after it, which sets some nice colors, centers things, and just makes it all fit better. 
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- I got 100s on all 4 lighthouse tests for both pages of my website. See the attached images lighthouse1 and lighthouse2. Specifically I used https://pagespeed.web.dev/ which I'm pretty sure is the right one. Btw if you check and performance is 99, apparently that's caused by render having issues which I can't do anything about, but most of the time its 100 with the rest. 
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+- For the CRAP priciples, the text boxes recieve the most contrast, as they glow when you hover over them. This is important since they're the most important part of the website. Additionally, the center div which contains all of the information, despite being light blue like the background, is heavily contrasted with the background. I did this by 1. having the center div have a more saturated shade of blue than the background, and 2. highlighting the center div in a ring of orange, brown, and black. It's also sandwhiched by the dark blue header and footer, which increases it's contrast by centering it as a wreath around it, the same was the orange brown and black ring does it. I also made the text black when the background it lighter, and the text white when the background is darker, which makes it more readable and thus more accessable to people with eye issues. DEI win!
+  - I used proximity to group the inputs into one section and the responses (the shopping list) into another section, by putting the elements in each group close together like a list. To elaborate (quoth the 125) all of the inputs are groups together in a blocky format. Additionally, there is texts sandwhiched inbetween the inputs. This tells the person operating the website that the text must be related to the input. So, due to proximity people know that text is giving instructions for what to write in the input. Like how right under "Remove data" theres a block touching it (no other blocks are that close) which is used for writing the piece of data you want to remove. And then of course, all of the entries for you user's shopping list and listed in an actual list, which is a close proximity thing that shows its a group of something. 
+  - I used solid color backgrounds for divs repeatedly, so it all blends together as a vibrant but not focused background. Also, as mentioned earlier, I spammed the hover affect for the inputs. Like, yeah it works well for the contrast. You know what it's also? cool. And personally thats what I think the most important part of this is, rule of cool. I also used google's grandstander font for pretty much all of the font in the website. My reasoning is that none of the text is different enough to justify having a different font. Maybe if I had a piece of joke text I'd use a wacky font for that, but alas, all my text is normal and not wacky. Take a look at my A1...
+  - I used alignment by keeping headers centered and non-headers to the left so they read more like regular text. I also tried to center all of the major divs so that they are centered to where someone would naturally be looking at the screen. Speaking of divs, the css library randomly added a bit of space into one of my center most divs and its really annoying!!! Anyhow yeah in addition to centering headers I also centered the text in the real header and footer. This is because they kinda add onto the background like the tops and bottoms of roman columns, so I kinda have to center them or it doesn't feel right. And then everything thats to the left is like that because it contains or will be typed with text that people are used to seeing on the left. 

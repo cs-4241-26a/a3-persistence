@@ -1,0 +1,125 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+body {
+  background-color:#f9ece5;
+  color:#68150a;
+  font-family: "Chango", cursive;
+  text-align: center;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #1f0062;
+  color:#f9ece5;
+  text-align: left;
+}
+
+.sidebar h2 {
+  margin-left: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar li a {
+  margin-left: 0px;
+  color:#f9ece5;
+}
+
+.sidebar li a:hover {
+  color: #d73220;
+}
+
+.sidebar a {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.sidebar a:hover {
+  color:#d73220;
+}
+
+main {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  margin-left: 250px;
+  min-height: 100vh;
+}
+
+header {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: #1f0062;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.40em;
+}
+
+.tagline {
+  color:#0b78b3;
+  margin-block-start: 0.20em;
+  margin-block-end: 0.83em;
+}
+
+#car-image {
+  padding: 40px;
+  width: 60%;
+  border-radius: 20%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input {
+  height:3rem;
+  width:10rem;
+}
+
+.submit {
+  background-color:#0b78b3;
+  color:#f9ece5;
+  height: 3rem;
+  width: 10rem;
+}
+
+.price {
+  font-weight: bold;
+  color:#0b78b3;
+}
+
+.delete-button {
+  border-radius: 100%;
+  background-color:#d73220;
+  color:#f9ece5;
+}

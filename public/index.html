@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>CS4241 Assignment 3</title>
+    <meta charset='utf-8' name="description" content="a3-PatrickTirch"/>
+    <script src='js/main.js'></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./css/main.css' />
+
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside class="sidebar">
+        <h2>Patrick's Used Cars</h2>
+        <nav>
+          <ul>
+            <li class="nav-item"><a href="#" id="nav-home">Home</a>
+            <li class="nav-item"><a href="#" id="nav-cars">Available Cars</a></li>
+            <li class="nav-item"><a href="#" id="nav-sell">Sell Your Car</a></li>
+            <li class="nav-item"><a href="#" id="nav-reviews">Reviews</a></li>
+          </ul>
+        </nav>
+        <a href="/auth/github" id="login-button" class="btn bg-light">Log In (GitHub)</a>
+      </aside>
+      <main>
+        <section id="page-home" class="page">
+          <header>
+            <h1 class="title">Patrick's Used Cars</h1>
+            <h2 class='tagline'>Great Used Cars at Great Prices</h2>
+          </header>
+          <img src="Used_Cars.jpg" alt="Image of Used Cars" id="car-image">
+          <p>Welcome to Patrick's Used Cars!</p>
+          <p>Browse our selection or let us inspect your car to determine its Miles Per Gallon (MPG) so we can give you an estimated price!</p>
+        </section>
+
+        <section id="page-cars" class="page d-none">
+            <h2>Available Cars</h2>
+            <table class="available-cars">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Year</th>
+                  <th>Color</th>
+                  <th>MPG</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Honda Odyssey</td>
+                  <td>2010</td>
+                  <td>Blue</td>
+                  <td>25</td>
+                  <td>$17000</td>
+                </tr>
+                <tr>
+                  <td>Toyota Corolla</td>
+                  <td>1998</td>
+                  <td>Silver</td>
+                  <td>18</td>
+                  <td>$5000</td>
+                </tr>
+                <tr>
+                  <td>Ford Mustang</td>
+                  <td>2005</td>
+                  <td>Red</td>
+                  <td>22</td>
+                  <td>$11500</td>
+                </tr>
+                <tr>
+                  <td>Subaru Outback</td>
+                  <td>2012</td>
+                  <td>Green</td>
+                  <td>28</td>
+                  <td>$21000</td>
+                </tr>
+                <tr>
+                  <td>Chevrolet Civic</td>
+                  <td>2002</td>
+                  <td>Black</td>
+                  <td>16</td>
+                  <td>$5000</td>
+                </tr>
+                <tr>
+                  <td>Mazda 3</td>
+                  <td>2018</td>
+                  <td>White</td>
+                  <td>32</td>
+                  <td>$28000</td>
+                </tr>
+                <tr>
+                  <td>Jeep Wrangler</td>
+                  <td>1995</td>
+                  <td>Yellow</td>
+                  <td>12</td>
+                  <td>$5000</td>
+                </tr>
+                <tr>
+                  <td>Hyundai Elantra</td>
+                  <td>2022</td>
+                  <td>Grey</td>
+                  <td>30</td>
+                  <td>$28000</td>
+                </tr>
+              </tbody>
+            </table>
+        </section>
+
+        <section id="page-sell" class="page d-none">
+          <h2>Sell Us Your Car!</h2>
+          <p>Enter some details about your car!</p>
+          <p>We will determine the Miles Per Gallon and give a price estimate!</p>
+          <p>See what your friends' cars are worth too while you're at it!</p>
+          <form class="mb-5">
+            <input type='text' id='model' placeholder='Enter Model' required>
+            <input type='number' id='year' placeholder='Enter Year' required min="1900" max="2026">
+            <input type='text', id='color' placeholder='Enter Color' required>
+            <button class="submit">Submit</button>
+          </form>
+          <div id="car-estimates" class="list-group"></div>
+        </section>
+
+        <section id="page-reviews" class="page d-none">
+          <h2>Leave a Review!</h2>
+          <p>Let your voice be heard! Leave a review so we can improve!</p>
+          <form id="review-form" class="d-flex flex-row align-items-center mb-5 gap-3">
+            <textarea id="review-textbox" placeholder="Write review..." required></textarea>
+            <button type="submit" class="submit">Submit</button>
+          </form>
+          <div id="reviews" class="list-group"></div>
+        </section>
+        
+      </main>
+    </div>
+  </body>
+</html>

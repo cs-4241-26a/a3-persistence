@@ -1,0 +1,53 @@
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+  background-color: lightgray;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body, html, #outer-flex {
+  height: 100%;
+}
+
+body, html {
+  margin: 0;
+}
+
+#outer-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-panel {
+  background-color: whitesmoke;
+  min-width: 30rem;
+  min-height: 35rem;
+  padding: 1em;
+  box-shadow: #000000c2 0 0 7px 0px;
+}
+
+@media screen and (max-width: 30rem) {
+  #login-panel {
+    background-color: whitesmoke;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 1em;
+  }
+}
+
+#login-wrapper {
+  display: flex;
+  height: 100%;
+}

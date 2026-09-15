@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>CS4241 Assignment 3</title>
+    <meta charset='utf-8' />
+    <meta name="description" content="Homework todo tracker main user dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='js/main.js' defer></script>
+    <link rel='stylesheet' href='css/main.css' />
+    <link rel="stylesheet" href="purecss/build/pure-min.css">
+    <!-- <link rel="preload" href="/public/src/bg.jpg" as="image"> -->
+    <!-- <link rel="icon" href="favicon.ico"> -->
+  </head>
+  <body>
+    <div class="center">
+      <nav class="panel">
+        <a href="index.html">Homework Tracker</a>
+        <p id="user-text">Welcome, </p>
+        <a class="pure-button" href="/logout">Logout</a>
+      </nav>
+      <main class="panel">
+        <!-- <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p> -->
+        <div id="scroll-view">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Due date</th>
+                <th scope="col">Urgency</th>
+                <th scope="col">Controls</th>
+              </tr>
+            </thead>
+            <tbody id="display">
+            </tbody>
+          </table>
+        </div>
+        <div class="center">
+          <form class="pure-form">
+            <fieldset>
+              <input type='text' id='hw_name' placeholder='Name'>
+              <!-- <input type='text' id='hw_sub' placeholder='Subject'> -->
+                <label for="hw_sub">Duration: </label>
+                <select id="hw_sub">
+                  <option value="Short">Short</option>
+                  <option value="Normal" selected>Normal</option>
+                  <option value="Long">Long</option>
+                </select>
+              <label for="hw_due">Due: </label><input type="date" id="hw_due"/>
+              <button class="pure-button pure-button-primary" id="submit">submit</button>
+            </fieldset>
+          </form>
+          <dialog id="edit-dialog">
+            <form class="pure-form" id="form-dialog" method="dialog">
+              <h1>Edit Todo</h1>
+              <input type='text' id='modal-name' placeholder='Name'>
+              <!-- <input type='text' id='modal-sub' placeholder='Subject'> -->
+               <select id="modal-sub">
+                <option value="Short">Short</option>
+                <option value="Normal" selected>Normal</option>
+                <option value="Long">Long</option>
+              </select>
+              <input type="date" id="modal-due"/>
+              <button class="pure-button" id="modal-cancel-btn">Cancel</button>
+              <button class="pure-button pure-button-primary" id="modal-edit-btn" data-id="">Edit</button>
+            </form>
+          </dialog>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

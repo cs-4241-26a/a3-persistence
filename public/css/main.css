@@ -1,0 +1,96 @@
+html, body, main {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: url("../src/bg-2.webp");
+  background-size: cover;
+  /* background-position: center;  */
+  background-repeat: no-repeat; 
+
+  /* whatever websafe font that is sans-serif */
+  font-family: "Trebuchet MS", "Helvetica", "Arial", sans-serif;
+  background-color: #576886;
+  color: whitesmoke;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.555);
+}
+
+nav {
+  display:flex;
+  align-items: center;
+
+  #user-text {
+    margin-left: auto;
+    margin-right: 1em;
+  }
+
+  a {
+    color: #f5f5f5;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.panel {
+  max-width: 70em;
+  /* border: 1px solid black; */
+  /* height: 100%; */
+  width: 100%;
+  padding: 0.5em;
+  backdrop-filter: blur(19px) brightness(.8);
+  box-shadow: #000000c2 0 0 7px 0px;
+  border-radius: 0.4em;
+}
+
+nav, main, ul {
+  margin: 0.5em;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
+table {
+  min-width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+#scroll-view {
+  height: 30rem;
+  overflow-y: scroll;
+}
+
+tr {
+  outline: thin solid #ffffff2b;
+}
+tr:last-child {
+    opacity: 0;
+    animation: show 0.5s 0s forwards;
+}
+
+/* whoooooooo animations */
+@keyframes show {
+    to {
+        opacity: 1;
+    }
+}
+
+.pure-button-primary {
+  background-color: #0077e79f !important;
+}

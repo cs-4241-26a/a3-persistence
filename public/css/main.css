@@ -1,0 +1,63 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #f4f1ea;
+}
+
+#page-header {
+  background: #2a466b;
+  padding: 1rem 0;
+  color: #fff;
+}
+
+#page-header h1,
+#page-header p {
+  color: #fff;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.btn-primary {
+  background-color: #2a466b;
+}
+
+.btn-primary:hover {
+  background-color: #152841;
+}
+
+.priority-high {
+  background-color: #b60f00;
+}
+
+.priority-medium {
+  background-color: #da9500;
+}
+
+.priority-low {
+  background-color: #00ac2b;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #2e6f9e;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 0.5rem;
+  z-index: 1050;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 6px 6px;
+}
+
+.skip-link:focus {
+  top: 0;
+}

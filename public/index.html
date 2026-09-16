@@ -1,0 +1,485 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Movie Watchlist - Personal Movie Recommendations</title>
+
+  <meta
+    name="description"
+    content="Create a personal movie watchlist, rate movies, and receive recommendations based on your ratings."
+  >
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Custom CSS -->
+  <link
+    rel="stylesheet"
+    href="css/main.css"
+  >
+
+  <link
+    rel="icon"
+    href="data:;base64,iVBORw0KGgo="
+  >
+
+  <script
+    src="js/main.js"
+    defer
+  ></script>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <h1>🎬 Movie Watchlist</h1>
+
+  <p>
+    Save movies, rate them, and decide if they're worth watching.
+  </p>
+
+  <details>
+
+    <summary>
+      About
+    </summary>
+
+    <p>
+      Create your own personal movie watchlist.
+      Register or log in to add, edit, rate, and delete movies.
+    </p>
+
+  </details>
+
+</header>
+
+
+<main>
+
+  <section
+    class="card"
+    id="auth-section"
+    aria-labelledby="account-heading"
+  >
+
+    <h2 id="account-heading">
+      Account
+    </h2>
+
+
+    <div class="auth-grid">
+
+
+      <!-- REGISTER -->
+
+      <div>
+
+        <h3>
+          Create Account
+        </h3>
+
+        <form id="register-form">
+
+          <div class="field">
+
+            <label for="register-username">
+              Username
+            </label>
+
+            <input
+              id="register-username"
+              class="form-control"
+              name="username"
+              type="text"
+              autocomplete="username"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="register-password">
+              Password
+            </label>
+
+            <input
+              id="register-password"
+              class="form-control"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              required
+            >
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Register
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- LOGIN -->
+
+      <div>
+
+        <h3>
+          Log In
+        </h3>
+
+        <form id="login-form">
+
+          <div class="field">
+
+            <label for="login-username">
+              Username
+            </label>
+
+            <input
+              id="login-username"
+              class="form-control"
+              name="username"
+              type="text"
+              autocomplete="username"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="login-password">
+              Password
+            </label>
+
+            <input
+              id="login-password"
+              class="form-control"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            >
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Log In
+          </button>
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- Authentication feedback -->
+
+    <p
+      id="auth-message"
+      role="status"
+      aria-live="polite"
+    ></p>
+
+  </section>
+
+
+  <section
+    class="card hidden"
+    id="user-section"
+    aria-label="Current user"
+  >
+
+    <div class="user-row">
+
+      <p>
+        Logged in as
+        <strong id="current-user"></strong>
+      </p>
+
+      <button
+        id="logout-button"
+        class="btn btn-secondary"
+        type="button"
+      >
+        Log Out
+      </button>
+
+    </div>
+
+  </section>
+
+  <div
+    id="movie-app"
+    class="hidden"
+  >
+
+
+    <!-- ADD / EDIT MOVIE -->
+
+    <section
+      class="card"
+      id="form-section"
+      aria-labelledby="movie-form-heading"
+    >
+
+      <h2 id="movie-form-heading">
+        Add a Movie
+      </h2>
+
+      <p id="movie-instructions">
+        Enter a movie title, choose a genre, and give the movie
+        a rating from 1 to 10.
+      </p>
+
+
+      <form
+        id="movie-form"
+        aria-describedby="movie-instructions"
+      >
+
+        <input
+          type="hidden"
+          id="movie-id"
+        >
+
+
+        <div class="form-grid">
+
+
+          <!-- MOVIE TITLE -->
+
+          <div class="field">
+
+            <label for="movie">
+              Movie
+            </label>
+
+            <input
+              id="movie"
+              class="form-control"
+              name="movie"
+              type="text"
+              placeholder="Movie title"
+              required
+            >
+
+          </div>
+
+
+          <!-- GENRE -->
+
+          <div class="field">
+
+            <label for="genre">
+              Genre
+            </label>
+
+            <select
+              id="genre"
+              class="form-select"
+              name="genre"
+              required
+            >
+
+              <option value="">
+                Choose a genre
+              </option>
+
+              <option>Action</option>
+              <option>Adventure</option>
+              <option>Animation</option>
+              <option>Comedy</option>
+              <option>Drama</option>
+              <option>Fantasy</option>
+              <option>Horror</option>
+              <option>Romance</option>
+              <option>Sci-Fi</option>
+              <option>Thriller</option>
+              <option>Other</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- RATING -->
+
+          <div class="field">
+
+            <label for="rating">
+              Rating (1–10)
+            </label>
+
+            <input
+              id="rating"
+              class="form-control"
+              name="rating"
+              type="number"
+              min="1"
+              max="10"
+              step="1"
+              placeholder="8"
+              required
+            >
+
+          </div>
+
+
+        </div>
+
+
+        <!-- FORM BUTTONS -->
+
+        <div class="button-row">
+
+          <button
+            id="submit-button"
+            class="btn btn-primary"
+            type="submit"
+          >
+            Add Movie
+          </button>
+
+          <button
+            id="cancel-button"
+            class="btn btn-secondary secondary hidden"
+            type="button"
+          >
+            Cancel Edit
+          </button>
+
+        </div>
+
+
+        <!-- Movie operation feedback -->
+
+        <p
+          id="message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </section>
+
+    <section
+      class="card"
+      id="results-section"
+      aria-labelledby="watchlist-heading"
+    >
+
+      <div class="results-heading">
+
+        <h2 id="watchlist-heading">
+          My Watchlist
+        </h2>
+
+        <span
+          id="movie-count"
+          aria-live="polite"
+        >
+          0 movies
+        </span>
+
+      </div>
+
+
+      <div class="table-wrapper table-responsive">
+
+        <table class="table table-hover align-middle">
+
+          <caption class="visually-hidden">
+            Your saved movies with genre, rating,
+            recommendation, and available actions.
+          </caption>
+
+          <thead>
+
+            <tr>
+
+              <th scope="col">
+                Movie
+              </th>
+
+              <th scope="col">
+                Genre
+              </th>
+
+              <th scope="col">
+                Rating
+              </th>
+
+              <th scope="col">
+                Recommendation
+              </th>
+
+              <th scope="col">
+                Actions
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody id="movie-results">
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+  </div>
+  <!-- END MOVIE APP -->
+
+
+</main>
+
+
+<footer>
+
+  Enjoy movies responsibly!
+  &copy; 2026 Movie Watchlist
+
+</footer>
+
+
+</body>
+
+</html>

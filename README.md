@@ -1,6 +1,6 @@
 # Shubham's Workout Tracker
 
-**Live Application:** [link]
+**Live Application:** https://a3-shubham-kumar.onrender.com 
 
 Workout Tracker is a full-stack strength-training app that lets users securely log in, add, edit, delete, and review their own persistent workout data. The goal was to extend the previous in memory tracker into a multi-user application using Express, MongoDB, and authentication. The biggest challenges were adding persistent database storage, user specific data access, and GitHub OAuth authentication. I used cookie based sessions with GitHub OAuth, while also retaining username/password login with bcrypt hashing. Bootstrap 5 provides the main styling and responsive layout, with only a small amount of custom CSS for minor adjustments such as card borders, table sizing, and textarea behavior.
 

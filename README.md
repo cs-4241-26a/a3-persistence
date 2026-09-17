@@ -1,111 +1,40 @@
-Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template
-===
+## Cookbook - A Recipe Manager
 
-Due: September 15th, by 1:59 PM.
+Link: https://a3-noahgaskill.onrender.com/
 
-This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)
+Cookbook is a simple recipe manager site that allows users to store and edit their recipes. Users may create an account and see all their uploaded recipes. They may change any of the details, like the name, cook time, ingredients, or steps, and they can also delete a recipe entirely if they so choose.
 
-Baseline Requirements
----
+To use, you may create your own account. Or you can use the sample account noahggg with the password 123, who already has a recipe stored.
 
-Your application is required to implement the following functionalities:
+### Challenges: 
+The main challenge I faced in building this application was the edit feature. I wanted to reuse the recipe creation form but I had to make a lot of changes for that to work. I added an edit button next to the delete one, which then grabs and prefills the form with the recipe's details. I also pass the object id (stored in the dataset attribute of the recipe table's html) to the form to send it to the update route.  I faced issues with the table not updating after the form submitted, so I had to make the buildTable function return a table, and use the javascript replaceWith() function to replace the old table with the new one, and then all the form details were reset. I also faced an odd issue where req.body was sent properly but the server was reading the fields as undefined. I'm not even sure how but it ended up fixing itself eventually.
 
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account. 
-- Persistent data storage in between server sessions using [mongodb](https://www.mongodb.com/cloud/atlas) (you *must* use mongodb for this assignment). You can use either the [official mongodb node.js library](https://www.npmjs.com/package/mongodb) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
+Additionally, it was a challenge for me to give up the design I made and find a suitable framework. None really had the look I was going for. I wanted something vintage and whimsical, but most were very professional looking. Retro themes wouldn't fit, some paper ones I found were too cartoony, and others old-styled ones were too formal. Once I chose one it was also a whole lot more work than I expected to change everything over. I like the final result for the msot part, but I decided last-minute to add a logout button, and I couldn't get the formatting of that to go how I wanted. I just didn't have the time to fix it so it's a little weird positioning-wise but whatever.
 
-Your application is required to demonstrate the use of the following concepts:  
+### Authentication: 
+I chose the basic username and password authentication. Switching the server to express, connecting to MongoDB, and adding the editing feature, and rebuilding with the framework took longer than I expected, so I chose to go with the less time-consuming method. I considered making a proper registration system alongside the login but unfortunately did not have the time to implement such a feature. I use bcryptjs security, salting and hashing the password before putting it in the database.
 
-HTML:  
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
+### CSS: 
+I chose BeerCSS, as I liked how it generated a color scheme based on any color you gave it. I felt my choice of colors would be the best way to compromise and get a cozy/vintage feel despite the more professional design. I also liked how it didn't feel too minimalist either. I had familiarity with class-based frameworks from using Bootstrap in CS3733 last year, so it wasn't too difficult to work with, and I liked having more control over the styling.
 
-Note that it might make sense to have two pages for this assignment, one that handles login / authentication, and one that contains the rest of your application.
-For example, when visiting the home page for the assignment, users could be presented with a login form. After submitting the login form, if the login is 
-successful, they are taken to the main application. If they fail, they are sent back to the login to try again. For this assignment, it is acceptable to simply create 
-new user accounts upon login if none exist, however, you must alert your users to this fact.  
-
-CSS:  
-- CSS styling should primarily be provided by your chosen template/framework. 
-Oftentimes a great deal of care has been put into designing CSS templates; 
-don't override their stylesheets unless you are extremely confident in your graphic design capabilities. 
-The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:  
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. 
-See the [previous assignment](https://github.com/cs-4241-23/shortstack) for reference.
-
-Node.js:  
-- A server using Express and a persistent database (mongodb).
-
-General:  
-- Your site should achieve at least 90% on the `Performance`, `Best Practices`, `Accessibility`, and `SEO` tests 
-using Google [Lighthouse](https://developers.google.com/web/tools/lighthouse) (don't worry about the PWA test, and don't worry about scores for mobile devices).
-Test early and often so that fixing problems doesn't lead to suffering at the end of the assignment. 
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. I'd begin by converting your A2 assignment. First, change the server to use express. Then, modify the server to use mongodb instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Deploy your project to Render and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Render, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourfirstname-yourlastname` so we can find it.
-5. Fork this repository and modify the README to the specifications below.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-firstname-lastname`.
-
-Achievements
----
-
-Below are suggested technical and design achievements. You can use these to help boost your grade up to an A and customize the 
-assignment to your personal interests, for a maximum twenty additional points and a maximum grade of a 100%. 
-These are recommended achievements, but feel free to create/implement your own... just make sure you thoroughly describe what you did in your README, 
-why it was challenging, and how many points you think the achievement should be worth. 
-ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
-
-*Technical*
-- (10 points) Implement OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authenticaion or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. This is the hardest achievement in Webware; you have been warned!  
-- (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
-
-*Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
-Which element received the most emphasis (contrast) on each page? 
-How did you use proximity to organize the visual information on your page? 
-What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
-How did you use alignment to organize information and/or increase contrast for particular elements. 
-Write a paragraph of at least 125 words *for each of the four principles* (four paragraphs, 500 words in total).
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-A link to your project running on render.
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+I made a few overrides to the framework. The main rules were ones affecting the lists, as BeerCSS hides the markers by default, but I wanted to keep the numbers. The other changes I made were adding the background image to give my page a distinct visual identity, and making a minimum height for the recipe card for when none have been added yet.
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- **Tech Achievement 1: Lighthouse tests**: I achieved 100% on all 4 Lighthouse tests.
+![Lighthouse tests](./readme-images/lighthouse.png "Results")
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+- **Design Achievement 1**: I utilized all 4 CRAP principles in designing my website. 
+
+**Contrast**: 
+On the login page, the actual login button recived the most emphasis through contrast, the dark green standing out against the green card and brown background. While there definitely could be more, I made sure that the background image and the card didn't blend together too much. On the main page, the most emphasis is on the recipes, as those are the most important information on the website. I also used contrast to make sure the buttons were visible. For the ingredient, instruction, and edit buttons, I used contrasting values to make them stand out, using a dark green or blue against the light green card, and vice versa for the edit. I contrasted colors too, using red to make the delete buttons clear and emphasized. 
+
+
+**Repitition**: 
+I used multiple forms of repetition throughout the site. I have a consistent heading that doesn't move throughout between pages, and keep the boxes or group of boxes with content centered. I repeat colors throughout the website too. The buttons to add list items are the same shade of green, all the delete buttons are the same shade of red. Through the framework I use a consistent color palette to make the recipe cards and the other buttons the same shade of green. The recipe cards for the logged in user get repeated within a container card, keeping them all together. All the text uses the same font provided through BeerCSS. I repeat heading sizes across the two main cards on the main page, and all the recipe cards use a consistent formatting.
+
+**Alignment**: 
+I tried to make good use of alignment to make my page more readable. For the recipe cards, I created a diagonal that helps to guide the reader through the recipe. They would start at the left-aligned title and info that take up little space across the line. Next comes the ingredients followed by the instructions, and then at the bottom and the right are the buttons to change the recipe. As the rest of the content on the login page is centered and there isn't much going on, I chose to center align the login form to keep things consistent. I align all the form content to the left, except for the delete buttons. I did not want the list to feel too cluttered, so they're opposite the ingredient/instruction items.
+
+**Proximity**: 
+My website makes use of proximity to organize the information on the page. The form and its fields are all grouped together into a single card that make it distinct from the recipe section. Within the form, I grouped the simpler name and cooktime fields together, and put the more complicated list ones together below them. The printed lists are also put right below their given fields. I put all the recipes together in the same card, seperate from the form.  Additionally, I put each of the recipes' details visually distinct by putting them in their own cards within the larger container. I grouped the buttons together in the recipe cards, and also grouped the different fields for each recipe by complexity (i.e. the simple fields together and the list fields together).

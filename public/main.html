@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Cookbook - CS4241 Assignment 3</title>
+    <meta charset='utf-8'>
+    <script src='js/main.js'></script>
+    <!--beer.css-->
+    <link href="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.css" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
+    <!--my overrides-->
+    <link rel='stylesheet' href='css/main.css' >
+
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo='>
+    <meta name='description' content='A simplistic recipe manager where you can store, edit, and delete your recipes.'>
+  </head>
+  <body class = "responsive light">
+    <header class ="row">
+      <div class = "top-margin small-blur medium-width round center">
+          <h1 class = 'max center-align'>Cookbook</h1> 
+      </div>
+      <form action="/logout" method ='POST' class="right-align right bottom">
+          <button type='submit' class="right">Log Out</button>
+      </form>
+    </header>
+    <main>
+      <div class="row center-align top-align">
+        <article class="padding auto-height container-card medium-width">
+          <form id='form'>
+            <h2>Add Recipe</h3>
+            <div class="field label">
+              <input type='text' id='recipe-name' value='' minlength = 1>
+              <label for='recipe-name'><strong>Recipe Name:</strong></label>
+            </div>
+            <div class="field label">
+              <input type='number' id='cook-time' value='0' min = 1 >
+              <label for='cook-time'><strong>Cook time:</strong> </label>
+            </div>
+            <div class="field padding">
+              <label for='ingredients'><strong>Ingredients:</strong></label>
+              <textarea id='ingredients' minlength = 1 placeholder='Enter an ingredient'></textarea>
+              <output>Enter ingredients one by one</output>
+            </div>
+            <div>
+              <button type='button' class='tertiary add'>Add ingredient</button>
+            </div>
+            <div class="padding">
+              <ul id='ingredients-list' class="list border"></ul>
+            </div>
+            <div class="field padding">
+              <label for='instructions'><strong>Instructions: </strong></label>
+              <textarea id='instructions' minlength = 1 placeholder='Enter a step'></textarea>
+              <output>Enter ingredients one by one</output>
+            </div>
+            <button type='button' class='tertiary add' >Add step</button>
+            <div class="padding">
+              <ol id='instructions-list' class="list border"></ol>
+            </div>
+            <div class="right-align">
+              <button id="submit" class = 'submit' data-action="submit">Submit Recipe</button>
+            </div>
+          </form>
+          
+        </article>
+        <article id='recipes' class="container-card large-width auto-height top">
+          <h2 id = 'all-recipes' class='padding'>All Recipes</h2>
+          <div class="center-align middle-algin" id = 'empty'>
+            No recipes yet...
+          </div>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+/* :root{
+  --main-color: #D6BBE8;
+  --background-color: #EFECF8;
+  --dark-border: #D99DDD;
+  --light-border: #DE9EBF;
+  --delete: #a54d5e;
+  --text: hsl(295, 48%, 98%);
+}*/
+
+body {
+  background-image: url('../img/brown-gingham.jpg');
+  /* color:var(--text);
+  background-color:var(--background-color);
+  font-size: 1.0em;
+  font-family: "Didact Gothic", sans-serif;
+  font-weight: 500; */
+  background-size: cover;
+}
+
+.container-card{
+  min-height: 20rem;
+}
+
+ol{
+  list-style-type: decimal !important;
+}
+
+ul{
+  list-style-type: disc !important;
+}
+
+ol, ul{
+  padding-left:2rem !important;
+}
+ol > li, ul > li{
+  display:list-item !important;
+}
+/*
+h1{
+  font-size: 3rem;
+  color: #e1ceed;
+  text-align: center;
+  font-family: "Limelight", sans-serif;
+  text-shadow: 5px 5px var(--dark-border), 4px 4px var(--dark-border), 3px 3px var(--dark-border);
+}
+
+#login{
+  width:40%;
+  margin:auto;
+}
+
+main{
+  width:80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: space-between;
+}
+
+.alert-banner{
+  display: none;
+  width:90%;
+  margin:auto;
+}
+
+#form{
+  width:35%;
+}
+#recipes{
+  width: 65%;
+}
+
+.box{
+  margin: 0.5em 1.5em;
+  padding:1.5em 2.5em;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  border:0.5em solid var(--dark-border);
+}
+
+label{
+  display: block;
+}
+
+input, textarea{
+  display: block;
+  box-sizing: border-box;
+  width:75%;
+  margin: 0.4em 0em 0.8em;
+  padding:2% 2%;
+  border: 2px solid rgb(43, 17, 30);
+  border-radius: 3px;
+  
+}
+
+textarea{
+  field-sizing: content;
+  resize: none;
+}
+
+button{
+  color:var(--text);
+  background-color: #af4a88;
+  font-weight: 400;
+  font-size: 0.95em;
+  padding: 2px 4px;
+  border: 3px solid var(--background-color);
+
+}
+
+.submit{
+  background-color: #7098BA;
+  border: 3px solid var(--background-color);
+}
+
+.form li{
+  width: 75%;
+  word-break: break-all;
+}
+
+.delete{
+  background-color: var(--delete);
+  margin: auto 1em;
+  width:2em;
+  border: 3px solid rgb(255, 235, 235);
+  border-radius: 2px;
+  font-size: 0.95em;
+  
+}
+
+table{
+  width:100%;
+}
+
+h2{
+  font-size: 1.5em;
+}
+.timeTd{
+  text-align: center;
+}
+.deleteTd{
+  display: flex;
+  justify-content: flex-end;
+}
+th{
+  font-size: 1.1em;
+} */

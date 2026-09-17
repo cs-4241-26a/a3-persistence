@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta name="description" content="Login page for Frank's Illustrious Calculator">
+        <script src='js/logindex.js'></script>
+        <title>CS4241 Assignment 2</title>
+        <meta charset='utf-8' />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    </head>
+    <body>
+        <p class="errormsg"></p>
+        <main>
+        <p>Log in:</p>
+            <form action='/login' method='POST'>
+                <input type='text' name='username' placeholder="Username">
+                <input type='password' name='password' placeholder="Password">
+                <input type='submit' value="Log in">
+            </form>
+            <p>Or, create a new account:</p>
+            <form action='/newacc' method='POST'>
+                <input type='text' name='username' placeholder="Username">
+                <input type='password' name='password' placeholder="Password">
+                <input type='password' name='passwordconfirm' placeholder="Confirm Password">
+                <input type='submit' value="Create new account">
+            </form>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Mozilla+Headline:wght@200..700&display=swap');
+
+
+body {
+  background:black;
+  color:white;
+  font-family: 'Anton', sans-serif;
+}
+
+button {
+  color:red;
+  border: black;
+  border-radius: 1px;
+}
+
+#exercise {
+  color: blue;
+  border-radius: 3px;
+}
+
+#sets {
+  color: blue;
+  border-radius: 3px;
+}
+
+#reps {
+  color: blue;
+  border-radius: 3px;
+}
+
+.exercise-name{
+  color: blue;
+  font-weight: 300;
+  font-size: larger;
+}
+
+.calories-burned{
+  color: #ff6b6b;
+  font-weight: 300;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 20px 0;
+}

@@ -1,0 +1,31 @@
+ 
+ main{
+      display: grid; 
+      place-items: center; 
+    }
+     body{
+      font-family: Merriweather; 
+      background-color: #4575D4;
+      color: #000000;
+
+
+    }
+    header{
+      place-items: center; 
+      min-height: 30px; 
+      padding-top: 150px;
+    }
+    h1{
+      font-size: 50px;
+    }
+    p{
+      text-align: center;
+    }
+    #zodiacForm{
+      display: grid;
+      gap: 10px;
+    }
+    button{
+      padding: 10px;
+      cursor: pointer;
+    }

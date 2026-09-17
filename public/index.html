@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Find your Zodiac sign!</title>
+    <meta charset='utf-8' />
+    <meta name ="Description" content="Discover your zodiac sign based on your birthday">
+    <script src='js/main.js'></script>
+    <link rel='stylesheet' href='css/main.css' />
+ 
+      
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+</head>
+<body>
+     <header>
+    <h1> What is my Zodiac Sign?</h1>
+
+      <p> Login to discover your zodiac sign!</p>
+      </header>
+
+    <main>  
+     <section> 
+        <h2> ACCOUNT </h2>
+     <form id = "signupForm">
+        <h3> If you do not have an account please create an Account!</h3>
+          <label for="username"> UserName:</label>
+          <input type="text" id="username" name="username" required>
+          <br>
+          <label for="password"> Password: </label>
+          <input type="password" id="password" name="password" required>
+          <br>
+          <button type="submit"> Create Account</button>
+          <div id="successmessage" style="display: none;"> 
+            Account created Successfully!
+            </div>
+        
+        </form>
+    <form id ="loginForm">
+        <h3>If you have an account please login! </h3>
+        <label for="loginusername"> UserName:</label>
+        <input type="text" id="loginusername" required>
+          <br>
+        <label for="loginpassword"> Password: </label>
+        <input type="password" id="loginpassword" required>
+          <br>
+        <button type="submit"> Login</button>
+           </section>
+           </main>
+    </body>
+</html>
+

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <title>My Account - Recipe Wiki</title>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content='See your recipes on Recipe Wiki and update your account settings.'>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@87.5,200..900&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <script src='js/main.js'></script>
+  <link rel='stylesheet' href='normalize.css'>
+  <link rel='stylesheet' href='pure.css'>
+  <link rel='stylesheet' href='grids-responsive.css'>
+  <link rel='stylesheet' href ='css/custom-styles.css'>
+  
+  <!-- get rid of favicon error -->
+  <link rel='icon' href='data:;base64,iVBORw0KGgo='>
+</head>
+
+<body>
+  <header class='pure-menu pure-menu-horizontal'>
+    <h1 class='pure-menu-heading'>Recipe Wiki</h1>
+    <ul class='pure-menu-list'>
+      <li class='pure-menu-item'>
+        <a href='index.html' class='pure-menu-link'>Browse recipes</a>
+      </li>
+      <li class='pure-menu-item selected'>
+        <a href='profile.html' class='pure-menu-link'>My recipes</a>
+      </li>
+      <li class='pure-menu-item'>
+        <form action='/logout' method='POST'>
+          <button type='submit' class='pure-menu-link'>Log out</button>
+        </form>
+      </li>
+
+    </ul>
+  </header>
+
+  <main class='pure-g'>
+    <section id='profile-info' class='pure-u-1 form-wrapper'>
+        <form action='/editaccount' method='POST' class='pure-form centered'>
+            <label for='password'>New password:</label>
+            <input type='password' id='password' name='password' required>
+            <input type='submit' value='Submit' class='pure-button pure-button-primary'>
+        </form>
+    </section>
+    <section id='recipe-list' class='pure-u-1'>
+        <h2>My recipes</h2>
+
+    </section>
+  </main>
+</body>
+</html>

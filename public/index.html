@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <title>Browse Recipes - Recipe Wiki</title>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content='Upload your recipes and see what other people are making.'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@87.5,200..900&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <script src='js/main.js'></script>
+  <link rel='stylesheet' href='normalize.css'>
+  <link rel='stylesheet' href='pure.css'>
+  <link rel='stylesheet' href='grids-responsive.css'>
+  <link rel='stylesheet' href ='css/custom-styles.css'>
+  
+  <!-- get rid of favicon error -->
+  <link rel='icon' href='data:;base64,iVBORw0KGgo='>
+</head>
+
+<body>
+  <header class='pure-menu pure-menu-horizontal'>
+    <h1 class='pure-menu-heading'>Recipe Wiki</h1>
+    <ul class='pure-menu-list'>
+      <li class='pure-menu-item selected'>
+        <a href='/index.html' class='pure-menu-link'>Browse recipes</a>
+      </li>
+      <li class='pure-menu-item'>
+        <a href='/profile.html' class='pure-menu-link'>My recipes</a>
+      </li>
+      <li class='pure-menu-item'>
+        <form action='/logout' method='POST'>
+          <button type='submit' class='pure-menu-link'>Log out</button>
+        </form>
+      </li>
+
+    </ul>
+  </header>
+  
+  <main class='pure-g'>
+    <section id='recipe-form' class='pure-u-1 pure-u-md-1-2 form-wrapper'>
+      <h2>New Recipe</h3>
+      <form id='create-recipe' class='pure-form pure-form-aligned centered'>
+        <div class='pure-control-group'>
+          <label for='recipename'>*Recipe name:</label>
+          <input type='text' id='recipename' placeholder='Chocolate Chip Cookies' required>
+        </div>
+
+        <div class='pure-control-group'>
+          <label for='preptime'>Prep time:</label>
+          <unit-wrapper>
+            <input type='number' id='preptime' placeholder='30' min=0>
+            <input-unit>minutes</input-unit>
+          </unit-wrapper>
+        </div>
+
+        <div class='pure-control-group'>
+          <label for='cooktime'>Cook time:</label>
+          <unit-wrapper>
+            <input type='number' id='cooktime' placeholder='15' min=0>
+            <input-unit>minutes</input-unit>
+          </unit-wrapper>
+        </div>
+
+        <div class='pure-control-group'>
+          <label for='ingredients'>*Ingredients:</label>
+          <textarea required id='ingredients' placeholder='1 cup sugar&#10;1 cup flour&#10;...'></textarea>
+        </div>
+
+        <div class='pure-control-group'>
+          <label for='steps'>*Steps:</label>
+          <textarea required id='steps' placeholder='1. Combine dry ingredients in a small bowl...'></textarea>
+        </div>
+        
+
+        <div class='pure-controls'>
+          <input type='submit' value='Create' class='pure-button pure-button-primary'>
+        </div>
+      </form>
+    </section>
+    
+    <section id='recipe-list' class='pure-u-1 pure-u-md-1-2'>
+      <h2>Submitted Recipes</h2>
+    </section>
+  </main>
+</body>
+</html>

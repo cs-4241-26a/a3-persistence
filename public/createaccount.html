@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <title>Create Account - Recipe Wiki</title>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content='Make an account to share your recipes.'>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@87.5,200..900&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <!-- <script src='js/main.js'></script> -->
+  <link rel='stylesheet' href='normalize.css'>
+  <link rel='stylesheet' href='pure.css'>
+  <link rel='stylesheet' href='grids-responsive.css'>
+  <link rel='stylesheet' href ='css/custom-styles.css'>
+  
+  <!-- get rid of favicon error -->
+  <link rel='icon' href='data:;base64,iVBORw0KGgo='>
+</head>
+
+<body>
+  <header class='pure-menu pure-menu-horizontal'>
+    <h1 class='pure-menu-heading'>Recipe Wiki</h1>
+    <ul class='pure-menu-list'>
+      <li class='pure-menu-item'>
+        <a href='login.html' class='pure-menu-link'>Log in</a>
+      </li>
+      <li class='pure-menu-item selected'>
+        <a href='createaccount.html' class='pure-menu-link'>Create account</a>
+      </li>
+    </ul>
+  </header>
+  
+  <main class='pure-g form-wrapper'>
+    <h2 class='pure-u-1'>Create Account</h2>
+    <section class='pure-u-1'>
+        <form action='/createaccount' method='POST' class='pure-form pure-form-aligned centered'>
+            <div class='pure-control-group'>
+                <label for='username'>*Username:</label>
+                <input type='text' id='username' name='username' required>
+            </div>
+
+            <div class='pure-control-group'>
+                <label for='password'>*Password:</label>
+                <input type='password' id='password' name='password' required>
+            </div>
+
+            <div class='pure-controls'>
+            <input type='submit' value='Submit' class='pure-button pure-button-primary'>
+            </div>
+        </form>
+    </section>
+  </main>
+</body>
+</html>

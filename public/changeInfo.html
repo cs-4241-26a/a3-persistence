@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Change your Profile Info - Math Maker!</title>
+    <meta charset='utf-8' />
+    <meta name="description" content="Form for users to change their personal data.">
+    <script src='js/changeInfo.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.css" rel="stylesheet">
+    <link href="css/colors.css" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <header class="fill">
+        <nav>
+            <a href="game.html"><button>Back to Main Game</button></a>
+        </nav>
+    </header>
+    <main>
+      <article class="container large-width center">
+        <div class="padding">
+          <form action="profile/modify" method="post">
+            <h4 class="center-align">Change Profile Info</h4>
+            <P>All fields are optional</P>
+            <div id="entire-username-div" class="field border">
+              <input type="text" name="username" value="" aria-label="Username Modify" id = "username-entry">
+              <output id="username-error">Change Username</output>
+            </div>
+            <div class="field border">
+              <input type="text" name="firstname" value="" aria-label="First Name Entry" id = "firstname-entry">
+              <output>Change First Name</output>
+            </div>
+            <div class="field border">
+              <input type="text" name="lastname" value="" aria-label="Last Name Entry" id = "lastname-entry">
+              <output>Change Last Name</output>
+            </div>
+            <div class="field border">
+              <input type="password" name="password" aria-label="Password Entry" id = "password-entry">
+              <output>Change Password</output>
+            </div>
+            
+            <button type="submit" value="Update" id="submit" class="large align-left" style="margin: 18px">Modify</button>
+          </form>
+          <h4 class="center-align">Delete Profile</h4>
+          <div class="padding"><button class="large error" data-ui="#delete-dialog">Delete Profile</button></div>
+        </div>
+      </article>
+    </main>
+      <dialog id="delete-dialog" >
+        <h5>Confirm Profile Deletion</h5>
+        <div id="delete-warning">Are you sure you want to delete your profile and all associated data? <strong>This cannot be undone.</strong></div>
+        <nav class="right-align no-space">
+          <button data-ui="#delete-dialog" class="transparent link">Cancel</button>
+          <button id="confirm-delete" class="error">Delete</button>
+        </nav>
+      </dialog>
+  </body>
+</html>

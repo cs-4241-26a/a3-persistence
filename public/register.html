@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Register a New Profile - Math Maker</title>
+    <meta charset='utf-8' />
+    <meta name="description" content="Register your new Math Maker account, then log in.">
+    <script src='js/register.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.css" rel="stylesheet">
+    <link href="css/colors.css" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <header class="fill">
+        <nav>
+            <a href="login.html"><button>Back to Login</button></a>
+        </nav>
+    </header>
+    <main class="surface-bright">
+      <article class="container large-width center">
+          <div class="padding">
+            <form action="profile/create" method="post">
+              <h3 class="center-align">Register to play Math Maker!</h3>
+              <div id="entire-username-div" class="field border required">
+                <input type="text" name="username" value="" aria-label="Username Entry" id = "username-entry">
+                <output id="username-error">Username</output>
+              </div>
+              <div class="field border">
+                <input type="text" name="firstname" value="" aria-label="First Name Entry" id = "firstname-entry">
+                <output>First Name</output>
+              </div>
+              <div class="field border">
+                <input type="text" name="lastname" value="" aria-label="Last Name Entry" id = "lastname-entry">
+                <output>Last Name</output>
+              </div>
+              <div class="field border">
+                <input type="password" name="password" aria-label="Password Entry" id = "password-entry">
+                <output>Password</output>
+              </div>
+              
+              <button type="submit" value="Update" id="submit" class="large align-left" style="margin: 18px">Register and Log In!</button>
+            </form>
+          </div>
+        </article>
+      </main>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Solve Problems - Math Maker</title>
+    <meta charset='utf-8' />
+    <script src='js/main.js'></script>
+    <meta name="description" content="Main game page of Math Maker. Solve math problems!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.css" rel="stylesheet">
+    <link href="css/colors.css" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@5.0.3/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <main class="surface-bright">
+      <article class="padding border responsive">
+        <div class="padding center-align">
+          <h1>Solve The Problem</h1>
+          <form>
+            <p id="problem" class="inverse-surface padding" style="font-family: 'Times New Roman', Times, serif; font-size: 64px;">???<p>
+            <div class="field border prefix">
+              <progress id="answer-waiting" class="circle indeterminate " value="50" max="100" hidden></progress>
+              <input id="answer" type="number" aria-label="Answer Here">
+              <output>Answer Here</output>
+            </div>
+            <button id ='submit'>Submit</button>
+          </form>
+        </div>
+      </article>
+      <div id="correct-result" class="snackbar primary top">Correct!</div>
+      <div id="incorrect-result" class="snackbar error top">Incorrect!</div>
+    </main>
+    <header class="fill">
+      <nav>
+        <a href="changeInfo.html">
+          <button id="username-display">Username: Modify Data</button>
+        </a>
+        <div class="max"></div>
+        <p id="full-name">First Last</p>
+        <p id="correct-count">Correct Guesses:</p>
+        <P id="total-count">Total Guesses:</P>
+        <p id="accuracy">Accuracy:</p>
+        <div class="max"></div>
+        <button data-ui="#logout-dialog">Logout</button>
+      </nav>
+    </header>
+    <dialog id="logout-dialog">
+      <h5>Log Out</h5>
+      <div>Are you sure you want to log out?
+      </div>
+      <nav class="right-align no-space">
+        <button class="transparent link" data-ui="#logout-dialog">Cancel</button>
+        <a href="logout">
+          <button class="transparent link">Logout</button>
+        </a>
+      </nav>
+    </dialog>
+  </body>
+</html>

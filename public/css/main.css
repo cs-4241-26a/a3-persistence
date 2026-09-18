@@ -1,0 +1,179 @@
+:root {
+  --accent: #000000;
+  --accent-hover: #555555;
+}
+
+body {
+  grid-template-columns: 1fr min(120rem, 90%) 1fr;
+}
+
+nav {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+h1 {
+  display: inline;
+  vertical-align: center;
+}
+
+.account-buttons {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.account-buttons a {
+  margin-left: 1rem;
+  visibility: collapse;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+
+/* ================ Main page ================ */
+
+#melody-maker {
+  border: 2px solid black;
+  margin: 0 0 20px 0;
+  height: max(35vh, 15rem);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#melody {
+  margin-bottom: 10px
+}
+
+#play {
+  height: 3rem;
+  font-size: 2.5rem;
+  padding: 0 5px 0 5px;
+  vertical-align: center;
+  display: inline-flex;
+  align-items: center;
+}
+
+.note-input {
+  height: 3rem;
+  font-size: 40px;
+  font-family: "Courier New", monospace;
+  padding: 0 10px 0 10px
+}
+
+#instructions {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 15px;
+  line-height: 20px;
+  text-align: center;
+}
+
+#details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#details label {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+input, button, .button {
+  margin-bottom: 0;
+}
+
+#submit {
+  margin-left: 20px
+}
+
+#collection {
+  border: 2px solid black;
+  margin: 0 0 5vh 0;
+  padding: 10px;
+  height: max-content;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#show-user-collection-div {
+  padding-bottom: 0.5rem;
+}
+
+.coll-item {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  width: 400px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.coll-item-description {
+  font-size: 1rem;
+  margin: 0 0 2px 0;
+}
+
+.coll-item-melody {
+  font-size: 1.8rem;
+  font-family: "Courier New", monospace;
+  margin: 0;
+}
+
+.coll-item-vibes {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.coll-item-load {
+  margin: 15px;
+}
+
+
+/* ================ Login ================ */
+
+#login-form {
+  border: 2px solid black;
+  margin: 0;
+  padding: 10px;
+  height: max-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#login-form label {
+  justify-self: flex-end;
+  margin-right: 0.5rem;
+}
+
+#login-form input {
+  margin: 1em 0;
+  width: 10vw;
+}
+
+.notice {
+  padding: 0.75rem;
+  background-color: white;
+  font-style: italic;
+}

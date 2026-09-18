@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <title>𝅘𝅥𝅮 mini melodies</title>
+        <meta name="description" content="express your musical creativity in eight notes or fewer.">
+        <meta charset='utf-8' />
+        <script src='js/main.js'></script>
+        <link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
+        <link rel='stylesheet' href='css/main.css' />
+
+        <!-- get rid of favicon error -->
+        <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+    </head>
+
+    <body>
+        <nav>
+            <h1>𝅘𝅥𝅮 mini melodies</h1>
+            <div class="account-buttons">
+                <p id="logged-in-status">not logged in</p>
+                <a id="create-account" class="button" href="/create-account">create account</a>
+                <a id="login" class="button" href="/login">log in</a>
+                <a id="logout" class="button" href="/logout">log out</a>
+            </div>
+        </nav>
+        <main>
+            <h2>make a melody</h2>
+            <div id="melody-maker">
+                <div id="melody">
+                    <button id="play">▶</button>
+                    <!-- Note inputs are generated here in code -->
+                </div>
+                <div id="instructions">
+                    1-8 are the notes of the major scale, 0 is silence.<br>
+                    write your melody, give it a title, and submit it to the collection.
+                </div>
+                <div id="details">
+                    <button id="clear">clear</button>
+                    <label for="title-input">melody title:</label> <input type="text" id="title-input">
+                    <label for="composer-input">composer:</label> <input type="text" id="composer-input" disabled>
+                    <button id="submit">submit</button>
+                </div>
+            </div>
+            <h2>collection</h2>
+            <div id="show-user-collection-div">
+                <input type="checkbox" id="show-user-collection"> <label for="show-user-collection">only show your collection</label>
+            </div>
+            <div id="collection">
+                <!-- Collection items are generated here in code -->
+                <p>nothing here yet...</p>
+            </div>
+        </main>
+    </body>
+</html>

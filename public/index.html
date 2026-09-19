@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Reading Tracker | CS4241 Assignment 3</title>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/main.css' />
+    <script src='/main.js'></script>
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  
+  <body>
+    <main class="container py-5">
+      <h1 class="mb-4">Reading Tracker</h1>
+      <div class="card shadow p-4 mb-5">
+        <div class="card-body">
+          <h2 class="mb-3">Add a Book</h2>
+
+          <form>
+            <p class="text-muted">Fields marked with * are required.</p>
+
+            <label for='book'>Book *</label>
+            <input type='text' id='book' class="form-control" placeholder='Book title' required>
+            
+            <label for='author'>Author *</label>
+            <input type='text' id='author' class="form-control" placeholder='Author' required>
+            
+            <label for='pagesRead'>Pages Read *</label>
+            <input type='number' id='pagesRead' class="form-control" placeholder='Pages Read' min="0" required>
+
+            <label for='totalPages'>Total Pages *</label>
+            <input type='number' id='totalPages' class="form-control" placeholder='Total Pages' min="1" required>
+
+            <label for='status'>Reading Status:</label>
+            <select id='status' class="form-select">
+              <option value='tbr'>Want to Read (TBR)</option>
+              <option value='currently-reading'>Currently Reading</option>
+              <option value='finished'>Finished</option>
+            </select>
+            
+            <fieldset class="mb-3 mt-3">
+              <legend>Book Format:</legend>
+
+              <input type='radio' id='physical' name='format' value='Physical' class="form-check-input">
+              <label for='physical' class="form-check-label">Physical</label>
+
+              <input type='radio' id='ebook' name='format' value='Ebook' class="form-check-input">
+              <label for='ebook' class="form-check-label">Ebook</label>
+
+              <input type='radio' id='audiobook' name='format' value='Audiobook' class="form-check-input">
+              <label for='audiobook' class="form-check-label">Audiobook</label>
+            </fieldset>
+
+            <fieldset class="mb-3">
+              <legend>Genre:</legend>
+              
+              <div class="form-check">
+                <input type="checkbox" id="fantasy" name="genre" value="Fantasy" class="form-check-input">
+                <label for="fantasy" class="form-check-label">Fantasy</label>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" id="romance" name="genre" value="Romance" class="form-check-input">
+                <label for="romance" class="form-check-label">Romance</label>
+              </div>
+              
+              <div class="form-check">
+                <input type="checkbox" id="mystery" name="genre" value="Mystery" class="form-check-input">
+                <label for="mystery" class="form-check-label">Mystery</label>
+              </div>
+            
+              <div class="form-check">
+                <input type="checkbox" id="thriller" name="genre" value="Thriller" class="form-check-input">
+                <label for="thriller" class="form-check-label">Thriller</label>
+              </div>
+            
+              <div class="form-check">
+                <input type="checkbox" id="science-fiction" name="genre" value="Science Fiction" class="form-check-input">
+                <label for="science-fiction" class="form-check-label">Science Fiction</label>
+              </div>
+              
+              <div class="form-check">
+                <input type="checkbox" id="nonfiction" name="genre" value="Nonfiction" class="form-check-input">
+                <label for="nonfiction" class="form-check-label">Nonfiction</label>
+              </div>
+            
+              <div class="form-check">
+                <input type="checkbox" id="other" name="genre" value="Other" class="form-check-input">
+                <label for="other" class="form-check-label">Other</label>
+              </div>
+            </fieldset>
+            
+            <fieldset class="mb-3">
+              <legend>Rating:</legend>
+              
+              <input type='radio' id='rating1' name='rating' value='1' class="form-check-input">
+              <label for='rating1' class="form-check-label">1</label>
+
+              <input type='radio' id='rating2' name='rating' value='2' class="form-check-input">
+              <label for='rating2' class="form-check-label">2</label>
+
+              <input type='radio' id='rating3' name='rating' value='3' class="form-check-input">
+              <label for='rating3' class="form-check-label">3</label>
+
+              <input type='radio' id='rating4' name='rating' value='4' class="form-check-input">
+              <label for='rating4' class="form-check-label">4</label>
+            
+              <input type='radio' id='rating5' name='rating' value='5' class="form-check-input">
+              <label for='rating5' class="form-check-label">5</label>
+            </fieldset>
+            
+            <label for='notes'>Notes / Review:</label>
+            <textarea id='notes' class="form-control" placeholder='Write your thoughts about the book'></textarea>
+            
+            <button type="submit" class="mb-2 btn btn-primary submitButton">Submit</button>
+
+            <div id="successMessage" class="alert alert-success d-none" role="status">
+              Book saved successfully!
+            </div>
+        </form>
+      </div>
+    </div>
+
+    <h2 class="mb-3">My Reading List</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Pages Read</th>
+            <th>Total Pages</th>
+            <th>Percentage Read</th>
+            <th>Status</th>
+            <th>Format</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Notes / Review</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+      <tbody id='readingList'>
+      </tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>

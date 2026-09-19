@@ -1,0 +1,48 @@
+body {
+  background:#605246;
+  color:#E6E0C4;
+  font-family: "Miranda Sans";
+}
+
+p {
+  color: #E6E0C4;
+  font-family: "Miranda Sans";
+  font-size: 18px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+
+th, td {
+  border: 3px solid #E6E0C4;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.submitButton {
+  align-self: flex-end;
+  cursor: pointer;
+  padding: 4px 10px;
+}
+
+#readingList {
+  font-size: 16px;
+}
+
+textarea {
+  height: 80px;
+  resize: vertical;
+}

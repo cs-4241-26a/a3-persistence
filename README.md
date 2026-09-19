@@ -1,111 +1,28 @@
-Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template
-===
+## Reading Tracker
 
-Due: September 15th, by 1:59 PM.
+https://a3-angela-long.onrender.com
 
-This assignment continues where we left off in A2, extending it to use a popular Node.js server framework (express), a database (mongodb), and a CSS application framework / template of your choice (Bootstrap, Material Design, Semantic UI, Pure etc.)
-
-Baseline Requirements
----
-
-Your application is required to implement the following functionalities:
-
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account. 
-- Persistent data storage in between server sessions using [mongodb](https://www.mongodb.com/cloud/atlas) (you *must* use mongodb for this assignment). You can use either the [official mongodb node.js library](https://www.npmjs.com/package/mongodb) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
-
-Your application is required to demonstrate the use of the following concepts:  
-
-HTML:  
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
-
-Note that it might make sense to have two pages for this assignment, one that handles login / authentication, and one that contains the rest of your application.
-For example, when visiting the home page for the assignment, users could be presented with a login form. After submitting the login form, if the login is 
-successful, they are taken to the main application. If they fail, they are sent back to the login to try again. For this assignment, it is acceptable to simply create 
-new user accounts upon login if none exist, however, you must alert your users to this fact.  
-
-CSS:  
-- CSS styling should primarily be provided by your chosen template/framework. 
-Oftentimes a great deal of care has been put into designing CSS templates; 
-don't override their stylesheets unless you are extremely confident in your graphic design capabilities. 
-The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:  
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. 
-See the [previous assignment](https://github.com/cs-4241-23/shortstack) for reference.
-
-Node.js:  
-- A server using Express and a persistent database (mongodb).
-
-General:  
-- Your site should achieve at least 90% on the `Performance`, `Best Practices`, `Accessibility`, and `SEO` tests 
-using Google [Lighthouse](https://developers.google.com/web/tools/lighthouse) (don't worry about the PWA test, and don't worry about scores for mobile devices).
-Test early and often so that fixing problems doesn't lead to suffering at the end of the assignment. 
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. I'd begin by converting your A2 assignment. First, change the server to use express. Then, modify the server to use mongodb instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Deploy your project to Render and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Render, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourfirstname-yourlastname` so we can find it.
-5. Fork this repository and modify the README to the specifications below.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-firstname-lastname`.
-
-Achievements
----
-
-Below are suggested technical and design achievements. You can use these to help boost your grade up to an A and customize the 
-assignment to your personal interests, for a maximum twenty additional points and a maximum grade of a 100%. 
-These are recommended achievements, but feel free to create/implement your own... just make sure you thoroughly describe what you did in your README, 
-why it was challenging, and how many points you think the achievement should be worth. 
-ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
-
-*Technical*
-- (10 points) Implement OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authenticaion or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. This is the hardest achievement in Webware; you have been warned!  
-- (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
-
-*Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
-Which element received the most emphasis (contrast) on each page? 
-How did you use proximity to organize the visual information on your page? 
-What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
-How did you use alignment to organize information and/or increase contrast for particular elements. 
-Write a paragraph of at least 125 words *for each of the four principles* (four paragraphs, 500 words in total).
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-A link to your project running on render.
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+The goal of my application is to create a Reading Tracker where users can keep track of the books they are reading, want to read, or have read. One challenge I faced was connecting my application to MongoDB and making sure the correct data was saved for each user, while also making sure adding, editing, and deleting books still worked. For authentication, I created a username and password login system where a new account is created if the username does not already exist. Passwords are hashed using bcryptjs before being stored in MongoDB. I chose this strategy because it was a simple way to create accounts and keep each user's book data separate. For my CSS framework, I used Bootstrap because it made it easier to style the application and keep the design consistent. I used Bootstrap for the forms, buttons, tables, cards, alerts, and layout, and added my own CSS to customize the colors, fonts, spacing, and table styling.
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- **Tech Achievement 1**: I used five Express middleware packages in my application. I used compression to compress HTTP responses, cookie-parser to parse cookie headers, cors to enable cross-origin resource sharing (CORS), morgan to log HTTP requests, and response-time to record HTTP response time.
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative:
+  - Clearly identify required fields: I added an asterisk next to the required fields and a message explaining what the asterisk means.
+  - Help users avoid and correct mistakes: I added minimum values for the page inputs so users cannot enter negative numbers or less than one total page.
+  - Provide contrast between foreground and background: I changed the background to dark brown with light text to make the page easier to read.
+  - Use markup to convey meaning and structure: I added a main element to show where the main content of the page is.
+  - Use headings and spacing to group related content: I used headings and spacing to separate different parts of the form and the reading list.
+  - Provide easily identifiable feedback: I added a success message that appears after a user adds or edits a book.
+  - Write code that adapts to the user's device: I added viewport settings and made the login card responsive so the pages can adjust to different screen sizes.
+
+- **Design Achievement 2**: I used the four CRAP design principles of contrast, repetition, alignment, and proximity throughout my application.
+
+ - Contrast: I used contrast throughout my Reading Tracker to make the most important parts of each page stand out. On the login page, the login form receives the most emphasis. The white card stands out against the dark brown background, which makes it clear where the user needs to enter their username and password. The blue Login button also stands out against the white card so it is easy to find. On the main page, the Add a Book form receives the most emphasis. The large white card stands out from the dark brown background and separates the form from the rest of the page. I also used light cream text for the Reading Tracker heading so that it stands out against the background. The blue Submit button creates another point of contrast inside the form. I kept the colors simple so that the important parts stand out without making the page feel too busy.
+
+  - Repetition: I used repetition throughout my application to make the login page and main Reading Tracker page feel like they are part of the same site. I used the same dark brown background and light cream text on both pages. I also used the same font throughout the site so that the text stays consistent. Bootstrap cards are used to hold the main forms on both pages, and both cards have the same white background and similar spacing. I also repeated the same blue button style for the Login and Submit buttons. On the main page, the form inputs also repeat the same Bootstrap styling and spacing. The headings follow similar styles so that users can easily understand the different sections of the page. Repeating these colors, fonts, buttons, cards, and form styles helped me keep the design consistent instead of making every part of the application look different.
+
+  - Alignment: I used alignment to keep the information in my application organized and easy to follow. On the main Reading Tracker page, the title, form, and reading list are aligned within the same main container. Inside the Add a Book form, the labels and input fields follow the same alignment as the user moves down the page. This makes the form easier to read because the user can follow the fields in a clear order. The information in the reading list is also organized into table columns so that the same types of information line up with each other. On the login page, I used a centered card to make the login form the main focus of the page. The username and password fields are aligned inside the card, while the heading is centered above them. I tried to keep the alignment simple and consistent so the pages look organized and are easy to use.
+
+  - Proximity: I used proximity to group information that is related to each other and separate information that has a different purpose. On the main page, all of the fields used to add a book are placed together inside the same white card. Related choices, such as book format, genre, and rating, are grouped into their own sections within the form. This makes it easier to understand which options belong together. The Submit button and success message are also placed close together so that users can immediately see the feedback after submitting a book. The My Reading List section is placed below the form and has its own heading, which separates the saved books from the form used to add them. On the login page, the username, password, and Login button are grouped together inside one card. Using proximity helped make the different sections of the application easier to understand.

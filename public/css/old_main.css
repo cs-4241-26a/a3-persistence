@@ -1,0 +1,194 @@
+:root {
+  --sticky-color: #F0CF65;
+  --button-color: #89A7A7;
+  --button-hover-color: #F78764;
+  --background-color: #1A1B25;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  background: var(--background-color);
+  color:white;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1{
+  text-align: center;
+  color: #DA4167;
+  font-size: 100px;
+  font-family: 'Londrina Shadow', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  min-height: 300px;
+  margin-bottom: 20px;
+}
+
+.note {
+  background-color: var(--sticky-color);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.note:hover {
+  transform: scale(1.05);
+}
+
+.note textarea {
+  width: 100%;
+  height: 120px;
+  background-color: transparent;
+  border: none;
+  resize: none;
+  font-size: 16px;
+  outline: none;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn:hover {
+  background-color: var(--button-hover-color);
+}
+
+.note:hover .delete-btn {
+  display: flex;
+}
+
+.addbtn{
+  background: var(--button-color);
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  align-content: center;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.addbtn:hover{
+  background: var(--button-hover-color);
+}
+
+#noteForm{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--sticky-color);
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  outline: none;
+  background-color: var(--sticky-color);
+}
+
+.modal-content textarea {
+  height: 120px;
+  resize: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .note {
+    width: 200px;
+  }
+
+  .add-btn {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .note {
+    width: 100%;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}
+
+.londrina-shadow-regular {
+  font-family: "Londrina Shadow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.montserrat-regular {
+               font-family: "Montserrat", sans-serif;
+               font-optical-sizing: auto;
+               font-weight: 200;
+               font-style: normal;
+}

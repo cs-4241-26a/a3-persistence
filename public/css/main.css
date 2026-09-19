@@ -1,0 +1,14 @@
+/* We keep the background color, but let PaperCSS handle all the inputs, buttons, and layout! */
+:root {
+    --background-color: #1A1B25;
+}
+
+body {
+    background: var(--background-color);
+    color: white;
+}
+
+/* Add the hover animation back to the PaperCSS cards */
+.card:hover {
+    transform: scale(1.05);
+}

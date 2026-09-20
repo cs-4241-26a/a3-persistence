@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>CS4241 Assignment 2</title>
+        <meta charset="utf-8" />
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="css/pico.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
+
+        <!-- get rid of favicon error -->
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    </head>
+    <body>
+        <main class="container">
+            <header class="page-header">
+                <h1>Assignment Tracker</h1>
+                <button type="button" id="logout">Logout</button>
+            </header>
+
+            <form id="form">
+                <input type="text" id="assignment" placeholder="Assignment" required />
+                <select id="category">
+                    <option value="" selected disabled>Category</option>
+                    <option id="Homework">Homework</option>
+                    <option id="Essay">Essay</option>
+                    <option id="Project">Project</option>
+                    <option id="Quiz">Quiz</option>
+                    <option id="Exam">Exam</option>
+                    <option id="Other">Other</option>
+                </select>
+                <label for="deadline">Due date:</label>
+                <input type="date" id="deadline" required />
+                <button id="submit">Submit</button>
+            </form>
+        </main>
+    </body>
+</html>

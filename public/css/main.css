@@ -1,0 +1,70 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:lightblue !important;
+  color:black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.card {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+.form1 {
+  margin: 20px auto;
+  
+}
+.listinput {
+  border: 2px solid darkcyan;
+  border-radius:  5px;
+  margin: 4px;
+  font-size: large;
+}
+#mainlist {
+  display: inline-block;
+}
+.submitbutton {
+  background-color: lightgray;
+  margin: 10px auto;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.selectedbtn {
+  background-color:  rgb(29, 191, 212);;
+  margin: 10px auto;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.unselectedbtn {
+  background-color: lightgray;
+  margin: 10px auto;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.titles{
+  margin: 30px auto;
+  color: darkcyan;
+}
+.smalltitle{
+  margin: 10px auto;
+  color: darkcyan;
+}
+.authtitle{
+  margin-top: 8rem ;
+  color: darkcyan;
+}
+.itembutton{
+  border-color: darkcyan;
+  color: brown;
+  background-color: lightblue;
+  border: 2px solid darkcyan;
+  cursor: pointer;
+  font-weight: bold;
+}

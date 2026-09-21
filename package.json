@@ -1,0 +1,30 @@
+{
+  "name": "a3-persistence",
+  "version": "1.0.0",
+  "description": "Assignment 3 - Persistence: Two-tier Web Application with Database, Express server, and CSS template ===",
+  "homepage": "https://github.com/Pigstin/a3-persistence#readme",
+  "bugs": {
+    "url": "https://github.com/Pigstin/a3-persistence/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pigstin/a3-persistence.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "mongodb": "^7.6.0"
+  },
+  "engines": {
+    "node": ">=16.x"
+  }
+}

@@ -1,0 +1,37 @@
+body {
+  background:black;
+  color:white;
+  font-family: times;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+table { 
+  /* display: grid; */
+  /* grid-template-columns: auto; */
+
+  padding:10px;
+  border:4px cadetblue;
+  border-spacing: 10px;
+}
+
+/* table > tr > td { */
+/* this is stupid and I would normally do table>tr>td buuut project requirements */
+.th, .td {
+  border:4px aquamarine;
+  text-align: center;
+}
+
+#submit {
+  position:relative;
+  left:10px;
+}
+
+.editBox {
+  position:relative;
+  left:12px;
+} 

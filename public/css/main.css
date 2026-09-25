@@ -1,0 +1,80 @@
+main.container {
+  max-width: 640px;
+}
+
+#panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#panel-header h1 {
+  margin: 0;
+}
+
+#add-button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.task-due,
+.task-remaining {
+  margin-left: 8px;
+  font-size: 14px;
+  color: var(--pico-muted-color);
+  white-space: nowrap;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.row-button {
+  margin: 0;
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+#empty-message,
+#status {
+  color: var(--pico-muted-color);
+}
+
+#empty-message {
+  text-align: center;
+}
+
+#status {
+  min-height: 24px;
+}
+
+#status.error {
+  color: var(--pico-del-color);
+}
+
+#logout-form {
+  margin: 0;
+  text-align: right;
+}
+
+#logout-form button {
+  width: auto;
+  margin: 0;
+}

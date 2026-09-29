@@ -1,0 +1,94 @@
+body {
+  background:white;
+  color:black;
+  min-height: 800px; 
+  border: 15px ridge black;
+  
+}
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+main{
+  display: flex;
+  gap: 50px;
+  flex-direction: row-reverse;
+  flex-wrap: no-wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+#LoginScreen{
+  display: block;
+  color:black;
+}
+#gameScreen{
+  display: none;
+}
+#scoreForm{
+ display: none;
+ padding: 1em;
+}
+#instructions{
+  visibility: visible;
+}
+.clickerGame{
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 0;
+}
+#leaderBoard{
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   min-height: 420px;
+}
+#leaderBoard tbody {
+  min-height: 200px; 
+}
+
+#leaderBoard table{
+  border-collapse: collapse;
+  min-width: 460px;
+  min-height: 320px; 
+  font-size: 1rem;
+}
+#leaderBoard th, #leaderBoard td {
+  border: 1px solid black;
+  padding: 0.6rem 1rem;
+  text-align: left;
+}
+#leaderBoard thead th {
+  background: #eee;
+}
+#clicker{
+  display: block;
+  height: 200px;
+  width: 200px;
+  color: #000;
+  background-color: #92d6ff;
+}
+#logoutButton{
+
+  margin-top: 50px;
+}
+#LoginScreen{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+#sumbitScore{
+  margin-top: 50px;
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <title>CS4241 Assignment 2</title>
+  <meta charset='utf-8'>
+  <meta name="description" content="Clicker game, how many times can you click the button in 10 seconds ">
+  <script src='js/main.js' defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:ital@0;1&display=optional"
+    media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css" media="print" onload="this.media='all'">
+
+  <link rel='stylesheet' href='css/main.css'>
+  <!-- get rid of favicon error -->
+  <link rel='icon' href='data:;base64,iVBORw0KGgo='>
+</head>
+
+<body>
+  <header>
+
+    <h1> 10 seconds clicker challenge</h1><i class="nes-logo"></i>
+    <h2> How many times can you click in 10 seconds?</h2>
+  </header>
+  <main>
+    <aside id="leaderBoard" class="nes-table-responsive">
+      <h2>Leader Board</h2>
+      <table class="nes-table is-bordered is-centered">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Score</th>
+            <th scope="col">Name</th>
+            <th scope="col">CPS</th>
+            <th scope="col">Note</th>
+            <th scope="col">Date </th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </aside>
+
+    <div id="LoginScreen">
+
+      <h3>Please login to play</h3>
+      <a class="nes-badge" href="/auth/github">
+        <span class="is-warning">Login with GitHub</span>
+      </a>
+    </div>
+
+    <div class="nes-container with-title  clickerGame" id="gameScreen">
+      <h2 id="timer">TIME LEFT: 10</h2>
+      <p id="scoreBoard">Score: 0</p>
+
+      <h3 id="instructions"> click to start playing!</h3>
+
+      <button id="clicker" type="button" class="nes-btn is-primary"> clicker</button>
+      <form id="scoreForm">
+        <p>Username: <strong id="playerName"></strong></p>
+        <label for="userNote"> Your note:</label>
+        <textarea maxlength="25" id='userNote'></textarea>
+
+        <button type='button' id="sumbitScore">submit</button>
+      </form>
+      <a id='logoutButton' class="nes-badge" href="/logout">
+        <span class="is-warning">Logout</span>
+      </a>
+
+
+
+
+    </div>
+  </main>
+
+
+</body>
+
+</html>

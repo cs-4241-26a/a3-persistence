@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<div class="container py-5" style="max-width: 450px;">
+    <div class="card shadow-sm text-bg-dark">
+        <div class="card-body p-4">
+            <h1 class="mb-3 text-center">Track 'Em</h1>
+            <h6 class="mb-3 text-center">Your go-to habit tracker</h6>
+
+            <% if (typeof error !== 'undefined' && error) { %>
+                <div class="alert alert-danger" role="alert"><%= error %></div>
+            <% } %>
+
+            <form action="/auth/login" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-3">Sign In</button>
+            </form>
+
+            <div class="text-center">
+                <p class="small text-muted">Don't have an account? <a href="/auth/register">Register here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

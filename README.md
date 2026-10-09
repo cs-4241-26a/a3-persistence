@@ -2,7 +2,7 @@
 # Assignment 3
 
 ## Track Em (A Habit Tracker)
-## Render Link: ---- 
+## Render Link: https://a3-aishwaryasilam-1.onrender.com 
 
 ## Project Summary
 A full-stack webpage that helps users create, track, and manage their personal habits. Key aspects of this application include a secure dashboard where users can track habits, customize frequencies, and update/delete entries. A separate user login and registration page allows for a clean, minimal, and intuitive user experience. This approach allows a clean separation with the Mongoose models and a much more reliable session management system. Using **Bootstrap 5** and **Google Fonts** allowed for a minimalist and clean theme while maintianig professionalism.

@@ -1,0 +1,28 @@
+{
+  "name": "a3-aishwaryasilam",
+  "version": "1.0.0",
+  "description": "Assignment 3: Node.js, Express, MongoDB, CSS framework",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-mongo": "^5.1.0",
+    "cookie-session": "^2.1.1",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^4.22.3",
+    "express-session": "^1.18.2",
+    "mongodb": "3.6",
+    "mongoose": "^7.8.12"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

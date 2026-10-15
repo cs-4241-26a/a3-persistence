@@ -1,0 +1,12 @@
+Server and website connect
+Some sort of tree and node connection
+A world builder application that connects different "pages" together in a node tree
+I like this idea but how
+First I gotta make a class for a "block"
+brick, worldwalk!!!
+Brick should have
+    Title: string
+    Body: string
+    Parent: Brick
+    Children: Brick[]
+    ez

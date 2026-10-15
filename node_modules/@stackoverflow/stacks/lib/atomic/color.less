@@ -1,0 +1,36 @@
+@import (reference) "../exports/color-mixins.less";
+@import (reference) "../exports/mixins.less";
+
+& {
+    @set: .sets-mode()[light];
+    @miscUtilityClasses: transparent, inherit;
+
+    // Create utility classes
+    .create-colors(@set, classes);
+
+    // Create aliased utility classes (error, warning, etc)
+    .create-aliased-utility-classes();
+
+    each(@miscUtilityClasses, {
+        .create-color-classes(@value, ~"@{value} !important", light, background-color);
+        .create-color-classes(@value, ~"@{value} !important", light, border-color);
+    });
+
+    // Create theme-specific utility classes
+    .create-colors(.sets-theme-default(), classes);
+
+    // Create dark mode conditional utility classes
+    .dark-mode({
+        // Utility classes
+        .create-colors(@set, classes, dark);
+
+        // Aliased utility classes (error, warning, etc)
+        .create-aliased-utility-classes(dark);
+
+        // Misc utility classes
+        each(@miscUtilityClasses, {
+            .create-color-classes(@value, ~"@{value} !important", light, background-color);
+            .create-color-classes(@value, ~"@{value} !important", light, border-color);
+        });
+    });
+}

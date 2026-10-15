@@ -1,0 +1,26 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "author": "",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@stackoverflow/stacks": "^3.0.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mime": "^2.4.4",
+    "mongodb": "^7.6.0",
+    "node-gyp": "^13.0.2",
+    "rebuild": "^0.1.2"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "allowScripts": {
+    "node-gyp@13.0.2": true,
+    "rebuild@0.1.2": true
+  }
+}

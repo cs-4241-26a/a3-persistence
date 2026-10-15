@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>CS4241 Assignment 2</title>
+    <meta charset='utf-8' />
+    <script src='js/main.js' defer></script>
+    <link rel='stylesheet' href='css/main.css' />
+    <link rel="stylesheet" href="css/stacks.css">
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body class="HomePage">
+    <button class="PageSwitch" type="button" onclick="window.location.href='wall.html'">See the wall</button>
+
+    <label id="brickFormTitleLabel" for="brickFormTitle">Place your first brick:</label>
+
+    <form id="firstBrickForm">
+      <input type="text" id="brickFormTitle" name="title" placeholder="Title of your brick..." required>
+
+      <textarea
+        id="brickFormBody"
+        name="body"
+        placeholder="What will you write on the wall..."
+        required
+      ></textarea>
+
+      <button type="submit" id="placeBrickButton">Lay your brick</button>
+    </form>
+  </body>
+</html>
+

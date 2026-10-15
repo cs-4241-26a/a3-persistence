@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>CS4241 Assignment 2</title>
+    <meta charset='utf-8' />
+    <script src='js/main.js' defer></script>
+    <link rel='stylesheet' href='css/main.css'/>
+    <link rel="stylesheet" href="css/stacks.css">
+    
+    <!-- get rid of favicon error -->
+    <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
+  </head>
+  <body>
+    <div class="wallHeader">
+    <button class="PageSwitch" type="button" onclick="window.location.href='firstBrick.html'">Back to home</button>
+    <button type="button" id='clearWall'>Clear Wall</button>
+
+    <p class="header">Click on a brick then lay a new brick to connect them</p>
+
+    </div>
+    <div id="brickWall"></div>
+    <div class="underWall">
+      <form id='childBrickForm' class="childBrickForm">
+      <input type="text" id="childBrickTitle" name="title" placeholder="Title of your brick..." required>
+
+      <textarea
+        id="childBrickBody"
+        name="body"
+        placeholder="What will you write on the wall..."
+        required
+      ></textarea>
+
+      <button type="submit" id="childBrickButton">Lay your brick</button>
+    </form>
+
+    <form id='editForm' class="childBrickForm">
+      <input type="text" id="editTitle" name="title" placeholder="Select a brick to edit" required>
+
+      <textarea
+        id="editBody"
+        name="body"
+        placeholder="Edit the body here"
+        required
+      ></textarea>
+
+      <button type="submit" id="editButton">Edit the selected brick</button>
+    </form>
+    </div>
+    <svg id="connection"></svg>
+
+  </body>
+</html>

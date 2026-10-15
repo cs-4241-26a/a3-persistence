@@ -1,0 +1,41 @@
+.input-states(@rules) {
+    .is-disabled &,
+    .is-readonly &,
+    .has-success &,
+    .has-error &,
+    .has-warning & {
+        @rules();
+    }
+};
+
+.validation-states(@prefix, @error: {}, @success: {}, @warning: {}) {
+    .has-error &,
+    .has-success &,
+    .has-warning & {
+        --_@{prefix}-bc-focus: ~"var(--_@{prefix}-bc)";
+    }
+
+    .has-error & {
+        --_@{prefix}-bc: var(--red-400);
+        @error();
+    }
+
+    .has-success & {
+        --_@{prefix}-bc: var(--green-400);
+        @success();
+    }
+
+    .has-warning & {
+        --_@{prefix}-bc: var(--yellow-500);
+        @warning();
+    }
+}
+
+.is-disabled,
+.is-readonly,
+.has-success,
+.has-error,
+.has-warning {
+    position: relative;
+}
+
